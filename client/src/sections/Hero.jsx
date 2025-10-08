@@ -59,18 +59,20 @@ const Hero = () => {
 
         {/* ====== Professional Badges ====== */}
         <div className="flex justify-center gap-3 mb-12 flex-wrap mt-2">
-          {[
-            { text: "NASA Galactic Problem Solver", color: "green" },
-            { text: "GDG Community Lead", color: "blue" },
-            { text: "Open Source Advocate", color: "purple" },
-          ].map((badge, i) => (
-            <div
-              key={i}
-              className={`bg-gradient-to-r from-${badge.color}-500/10 to-${badge.color}-400/10 text-${badge.color}-400 border border-${badge.color}-500/20 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(255,255,255,0.08)]`}
-            >
-              <span>{badge.text}</span>
-            </div>
-          ))}
+          {/* NASA Badge */}
+          <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 text-green-400 border border-green-500/20 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(34,197,94,0.3)]">
+            <span>NASA Galactic Problem Solver</span>
+          </div>
+          
+          {/* GDG Badge */}
+          <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 text-blue-400 border border-blue-500/20 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+            <span>GDG Community Lead</span>
+          </div>
+          
+          {/* Open Source Badge */}
+          <div className="bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-400 border border-purple-500/20 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(168,85,247,0.3)]">
+            <span>Open Source Advocate</span>
+          </div>
         </div>
 
         {/* ====== Name & Title ====== */}
@@ -156,25 +158,35 @@ const Hero = () => {
         <div className={`grid grid-cols-3 gap-6 max-w-md mx-auto border-t border-gray-800 pt-8 mb-12 relative z-10 transition-all duration-500 delay-700 ${
           isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
-          {[
-            { number: "5+", label: "Projects", color: "green" },
-            { number: "100+", label: "Community", color: "blue" },
-            { number: "2", label: "Awards", color: "red" },
-          ].map((metric, i) => (
-            <div
-              key={i}
-              className="text-center transition-all duration-300 hover:scale-105"
-            >
-              <div
-                className={`text-3xl md:text-4xl font-semibold bg-gradient-to-r from-${metric.color}-400 to-${metric.color}-500 bg-clip-text text-transparent mb-2`}
-              >
-                {metric.number}
-              </div>
-              <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide">
-                {metric.label}
-              </div>
+          {/* Projects */}
+          <div className="text-center transition-all duration-300 hover:scale-105">
+            <div className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-2">
+              5+
             </div>
-          ))}
+            <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide">
+              Projects
+            </div>
+          </div>
+          
+          {/* Community */}
+          <div className="text-center transition-all duration-300 hover:scale-105">
+            <div className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent mb-2">
+              100+
+            </div>
+            <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide">
+              Community
+            </div>
+          </div>
+          
+          {/* Awards - Fixed with visible color */}
+          <div className="text-center transition-all duration-300 hover:scale-105">
+            <div className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">
+              2
+            </div>
+            <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide">
+              Awards
+            </div>
+          </div>
         </div>
 
         {/* ====== Explore More Button ====== */}
@@ -186,7 +198,7 @@ const Hero = () => {
             aria-label="Scroll to next section"
             className="flex flex-col items-center space-y-1 text-gray-500 hover:text-green-400 transition-colors group"
           >
-            <span className="text-sm">Explore More</span>
+            <span className="text-sm">Explore</span>
             <div className="w-5 h-8 border-2 border-gray-600 rounded-full flex justify-center items-start group-hover:border-green-400">
               <div className="w-1 h-2 bg-green-400 rounded-full mt-1 animate-bounce"></div>
             </div>
