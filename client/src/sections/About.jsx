@@ -53,7 +53,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Enhanced Story Section */}
           <div className="space-y-8">
-            <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700/50 backdrop-blur-sm">
+            <div className="rounded-2xl p-8 border border-gray-700/50 backdrop-blur-sm">
               <h3 className="text-2xl font-semibold text-white mb-6 flex items-center space-x-3">
                 <div className="w-2 h-8 bg-green-500 rounded-full"></div>
                 <span>My Journey</span>
