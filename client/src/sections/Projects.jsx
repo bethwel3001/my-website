@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { HiExternalLink, HiChevronRight } from 'react-icons/hi';
+import { HiExternalLink, HiChevronRight, HiFolder, HiLightBulb } from 'react-icons/hi';
 import { FaGithub, FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiFlask, SiD3Dotjs, SiNasa, SiFirebase, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiFlask, SiD3Dotjs, SiNasa, SiTypescript, SiTailwindcss, SiFastapi, SiJupyter, SiPandas, SiNumpy, SiPostman, SiFramer, SiSpotify, SiFigma, SiReactrouter, SiAuth0 } from 'react-icons/si';
+import { FaMapMarkerAlt, FaCode, FaCoffee, FaMusic,  FaComments } from 'react-icons/fa';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -9,59 +10,89 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'EduConnect Platform',
-      description: 'Learning management system improving educational access in remote areas, aligned with SDG 4.',
+      title: 'LANA - Sustainable Education Platform',
+      description: 'Empowering African children with accessible, quality education through innovative technology. Addressing SDG 4 by bridging educational gaps in underserved communities.',
+      category: 'sdg',
       sdg: 4,
       tech: [
-        { name: 'React', icon: FaReact, color: 'text-blue-500' },
-        { name: 'Node.js', icon: FaNodeJs, color: 'text-green-600' },
-        { name: 'MongoDB', icon: SiMongodb, color: 'text-green-500' },
-        { name: 'Express', icon: SiExpress, color: 'text-gray-400' }
+        { name: 'React', icon: FaReact, color: 'text-blue-400' },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
+        { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500' },
+        { name: 'Express.js', icon: SiExpress, color: 'text-gray-400' },
+        { name: 'MongoDB', icon: SiMongodb, color: 'text-green-400' },
+        { name: 'Postman', icon: SiPostman, color: 'text-orange-500' },
+        { name: 'Figma', icon: SiFigma, color: 'text-purple-500' },
+        { name: 'React Router', icon: SiReactrouter, color: 'text-red-500' },
+        { name: 'Auth0', icon: SiAuth0, color: 'text-yellow-500' }
       ],
-      github: 'https://github.com/bethwelkiplagat/educonnect',
-      demo: 'https://educonnect.demo',
+      github: 'https://github.com/bethwel3001/LANA',
+      demo: null,
+      featured: true
     },
     {
       id: 2,
-      title: 'NASA Space Apps Solution',
-      description: 'Award-winning space data visualization and analysis addressing climate challenges.',
+      title: 'NASA Space Apps - Air Quality Forecasting',
+      description: 'Award-winning solution for forecasting air quality using TEMPO satellite data, ground sensors, and machine learning. Developed for NASA Space Apps Challenge 2025 to address climate and health challenges.',
+      category: 'sdg',
       sdg: 13,
       tech: [
         { name: 'Python', icon: FaPython, color: 'text-blue-400' },
-        { name: 'Flask', icon: SiFlask, color: 'text-gray-400' },
-        { name: 'D3.js', icon: SiD3Dotjs, color: 'text-orange-500' },
+        { name: 'FastAPI', icon: SiFastapi, color: 'text-green-400' },
+        { name: 'React.js', icon: FaReact, color: 'text-blue-400' },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
+        { name: 'Jupyter', icon: SiJupyter, color: 'text-orange-500' },
+        { name: 'Pandas', icon: SiPandas, color: 'text-red-400' },
+        { name: 'NumPy', icon: SiNumpy, color: 'text-blue-500' },
         { name: 'NASA APIs', icon: SiNasa, color: 'text-blue-600' }
       ],
-      github: 'https://github.com/bethwelkiplagat/nasa-spaceapps',
+      github: 'https://github.com/bethwel3001/predictions',
       demo: null,
+      featured: true,
+      award: 'Galactic Problem Solver'
     },
     {
       id: 3,
-      title: 'Community Resource Hub',
-      description: 'Open source platform connecting communities with essential resources and services.',
+      title: 'ConnectLink - Community Volunteer Platform',
+      description: 'Open source platform connecting communities with volunteers and essential resources. Connect - Innovate - Grow through seamless volunteer matching and resource sharing.',
+      category: 'sdg',
       sdg: 11,
       tech: [
-        { name: 'React', icon: FaReact, color: 'text-blue-500' },
+        { name: 'React.js', icon: FaReact, color: 'text-blue-400' },
         { name: 'Node.js', icon: FaNodeJs, color: 'text-green-600' },
+        { name: 'Express.js', icon: SiExpress, color: 'text-gray-400' },
         { name: 'MongoDB', icon: SiMongodb, color: 'text-green-500' },
         { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
-        { name: 'Tailwind', icon: SiTailwindcss, color: 'text-cyan-500' }
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
+        { name: 'Postman', icon: SiPostman, color: 'text-orange-500' },
+        { name: 'Geolocation API', icon: FaMapMarkerAlt, color: 'text-red-400' },
+        { name: 'Framer Motion', icon: SiFramer, color: 'text-purple-500' }
       ],
-      github: 'https://github.com/bethwelkiplagat/community-hub',
-      demo: 'https://communityhub.demo',
+      github: 'https://github.com/bethwel3001/connectlink',
+      demo: null,
+      featured: true
     },
     {
       id: 4,
-      title: 'Sustainable Agriculture App',
-      description: 'Mobile application helping farmers optimize resources and connect with markets.',
-      sdg: 2,
+      title: 'VibeFy - Spotify Mood & Personality Analyzer',
+      description: 'Fullstack web app that connects to Spotify, analyzes listening habits, and reveals musical mood, energy, and personality vibes. Built for Vibe Coding Hackathon 2025 courtesy of PLP Africa.',
+      category: 'fun',
       tech: [
-        { name: 'React Native', icon: FaReact, color: 'text-blue-500' },
-        { name: 'Firebase', icon: SiFirebase, color: 'text-yellow-500' },
-        { name: 'Node.js', icon: FaNodeJs, color: 'text-green-600' }
+        { name: 'React.js', icon: FaReact, color: 'text-blue-400' },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
+        { name: 'Framer Motion', icon: SiFramer, color: 'text-pink-500' },
+        { name: 'Node.js', icon: FaNodeJs, color: 'text-green-600' },
+        { name: 'Express', icon: SiExpress, color: 'text-gray-400' },
+        { name: 'Spotify API', icon: SiSpotify, color: 'text-green-500' },
+        { name: 'D3.js', icon: SiD3Dotjs, color: 'text-orange-500' },
+        { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
+        { name: 'Cursor', icon: FaCode, color: 'text-purple-400' },
+        { name: 'Coffee', icon: FaCoffee, color: 'text-yellow-700' },
+        { name: 'Vibes', icon: FaMusic, color: 'text-red-400' }
       ],
-      github: 'https://github.com/bethwelkiplagat/agri-app',
+      github: 'https://github.com/bethwel3001/vibefy',
       demo: null,
+      featured: true,
+      hackathon: 'Vibe Coding Hackathon 2025 - PLP Africa'
     }
   ];
 
@@ -77,7 +108,11 @@ const Projects = () => {
 
   const filteredProjects = filter === 'all' 
     ? projects 
-    : projects.filter(project => project.sdg === parseInt(filter));
+    : filter === 'fun' 
+      ? projects.filter(project => project.category === 'fun')
+      : filter === 'ui'
+        ? projects.filter(project => project.category === 'ui')
+        : projects.filter(project => project.sdg === parseInt(filter));
 
   const getSdgColor = (sdg) => {
     const colors = {
@@ -87,6 +122,71 @@ const Projects = () => {
       2: 'bg-yellow-500'
     };
     return colors[sdg] || 'bg-gray-500';
+  };
+
+  // Empty state component
+  const EmptyState = () => {
+    const getEmptyStateMessage = () => {
+      switch (filter) {
+        case '2':
+          return {
+            icon: HiLightBulb,
+            title: 'Agricultural Innovation in Progress',
+            message: 'Sustainable agriculture projects are currently in development. Check back soon for impactful solutions in food security and farming technology.',
+            action: 'Explore other SDG categories'
+          };
+        case 'ui':
+          return {
+            icon: HiFolder,
+            title: 'UI/UX Portfolio Coming Soon',
+            message: 'Design-focused projects and user experience case studies are being prepared. Meanwhile, explore my development work in other categories.',
+            action: 'View Development Projects'
+          };
+        case 'fun':
+          // This should show VibeFy, but keeping for consistency
+          return filteredProjects.length === 0 ? {
+            icon: HiLightBulb,
+            title: 'Creative Projects in Development',
+            message: 'More fun and experimental projects are currently being built. Stay tuned for innovative side projects and creative coding experiments.',
+            action: 'Check Back Soon'
+          } : null;
+        default:
+          return {
+            icon: HiFolder,
+            title: 'No Projects Found',
+            message: `No projects available in this category yet. New ${categories.find(cat => cat.id === filter)?.label.toLowerCase()} are in development.`,
+            action: 'Browse All Projects'
+          };
+      }
+    };
+
+    const emptyState = getEmptyStateMessage();
+    if (!emptyState) return null;
+
+    const Icon = emptyState.icon;
+
+    return (
+      <div className="col-span-full flex flex-col items-center justify-center py-16 px-4 text-center">
+        <div className="bg-gray-800/50 rounded-2xl p-8 max-w-md border border-gray-700/50">
+          <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Icon className="w-8 h-8 text-gray-400" />
+          </div>
+          <h3 className="text-xl font-semibold text-white mb-3">
+            {emptyState.title}
+          </h3>
+          <p className="text-gray-400 mb-6 leading-relaxed">
+            {emptyState.message}
+          </p>
+          <button
+            onClick={() => setFilter('all')}
+            className="bg-gray-700 hover:bg-gray-600 text-gray-300 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2"
+          >
+            <span>{emptyState.action}</span>
+            <HiChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -102,7 +202,7 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Category Filter with Chevrons */}
+        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
           {categories.map((category) => (
             <button
@@ -122,100 +222,104 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:border-green-400/30 hover:transform hover:scale-[1.02]"
-            >
-              {/* Project Header */}
-              <div className="h-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 relative overflow-hidden">
-                <div className="absolute top-4 right-4">
-                  <span className={`${getSdgColor(project.sdg)} text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium`}>
-                    SDG {project.sdg}
-                  </span>
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:border-green-400/30 hover:scale-[1.02]"
+              >
+                {/* Project Header */}
+                <div className="h-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 relative overflow-hidden">
+                  <div className="absolute top-4 right-4">
+                    <span className={`${getSdgColor(project.sdg)} text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium`}>
+                      {project.category === 'fun' ? 'Fun Project' : `SDG ${project.sdg}`}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity flex space-x-3">
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors hover:scale-110"
+                          aria-label="Live Demo"
+                        >
+                          <HiExternalLink className="w-4 h-4 md:w-5 md:h-5" />
+                        </a>
+                      )}
+                      <a
+                        href={project.github}
+                        className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors hover:scale-110"
+                        aria-label="GitHub Repository"
+                      >
+                        <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity flex space-x-3">
+
+                {/* Project Content */}
+                <div className="p-5 md:p-6">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 leading-relaxed text-sm md:text-base">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((techItem, index) => {
+                      const Icon = techItem.icon;
+                      return (
+                        <span
+                          key={index}
+                          className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs md:text-sm border border-gray-600 flex items-center space-x-2 transition-colors hover:border-gray-500"
+                        >
+                          <Icon className={`w-3 h-3 md:w-4 md:h-4 ${techItem.color}`} />
+                          <span>{techItem.name}</span>
+                        </span>
+                      );
+                    })}
+                  </div>
+
+                  {/* Project Links */}
+                  <div className="flex space-x-4 pt-3 border-t border-gray-700/50">
+                    <a
+                      href={project.github}
+                      className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors text-sm"
+                    >
+                      <FaGithub className="w-4 h-4" />
+                      <span>Code</span>
+                    </a>
                     {project.demo && (
                       <a
                         href={project.demo}
-                        className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors transform hover:scale-110"
-                        aria-label="Live Demo"
+                        className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors text-sm"
                       >
-                        <HiExternalLink className="w-4 h-4 md:w-5 md:h-5" />
+                        <HiExternalLink className="w-4 h-4" />
+                        <span>Live Demo</span>
                       </a>
                     )}
-                    <a
-                      href={project.github}
-                      className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors transform hover:scale-110"
-                      aria-label="GitHub Repository"
-                    >
-                      <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
-                    </a>
                   </div>
                 </div>
               </div>
-
-              {/* Project Content */}
-              <div className="p-5 md:p-6">
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-3 line-clamp-1">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed text-sm md:text-base line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack with Icons */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((techItem, index) => {
-                    const Icon = techItem.icon;
-                    return (
-                      <span
-                        key={index}
-                        className="group/tech bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs md:text-sm border border-gray-600 flex items-center space-x-2 transition-all duration-300 hover:border-gray-500"
-                      >
-                        <Icon className={`w-3 h-3 md:w-4 md:h-4 transition-colors duration-300 group-hover/tech:${techItem.color}`} />
-                        <span>{techItem.name}</span>
-                      </span>
-                    );
-                  })}
-                </div>
-
-                {/* Project Links */}
-                <div className="flex space-x-4 pt-3 border-t border-gray-700/50">
-                  <a
-                    href={project.github}
-                    className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors text-sm"
-                  >
-                    <FaGithub className="w-4 h-4" />
-                    <span>Code</span>
-                  </a>
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors text-sm"
-                    >
-                      <HiExternalLink className="w-4 h-4" />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <EmptyState />
+          )}
         </div>
 
-        {/* Call to Action - No Background */}
-        <div className="text-center mt-12 ">
-          <p className="text-gray-400 mb-6 text-lg">
+        {/* Call to Action */}
+      <div className="text-center mt-12 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm max-w-md mx-auto">
+          <p className="text-gray-400 mb-4 text-base">
             Ready to collaborate on meaningful projects?
           </p>
           <a
-              href="#contact"
-              className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2 text-sm md:text-base"
-            >
-            <span>Start a Collaboration</span>
-            <HiChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+            href="#contact"
+            className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2 text-sm"
+             >
+          <span>Start a Collaboration</span>
+            <HiChevronRight className="w-4 h-4" />
           </a>
         </div>
       </div>
