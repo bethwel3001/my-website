@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { HiExternalLink, HiChevronRight, HiFolder, HiLightBulb } from 'react-icons/hi';
 import { FaGithub, FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiFlask, SiD3Dotjs, SiNasa, SiTypescript, SiTailwindcss, SiFastapi, SiJupyter, SiPandas, SiNumpy, SiPostman, SiFramer, SiSpotify, SiFigma, SiReactrouter, SiAuth0 } from 'react-icons/si';
-import { FaMapMarkerAlt, FaCode, FaCoffee, FaMusic,  FaComments } from 'react-icons/fa';
+import { SiMongodb, SiExpress, SiFlask, SiD3Dotjs, SiNasa, SiTypescript, SiTailwindcss, SiFastapi, SiJupyter, SiPandas, SiNumpy, SiPostman, SiFramer, SiSpotify, SiFigma, SiReactrouter, SiAuth0, SiSwagger, SiGooglemaps } from 'react-icons/si';
+import { FaMapMarkerAlt, FaCode, FaCoffee, FaMusic, FaComments } from 'react-icons/fa';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
+  const [imageErrors, setImageErrors] = useState({});
 
   const projects = [
     {
@@ -26,8 +27,9 @@ const Projects = () => {
         { name: 'Auth0', icon: SiAuth0, color: 'text-yellow-500' }
       ],
       github: 'https://github.com/bethwel3001/LANA',
-      demo: null,
-      featured: true
+      demo: 'https://dainty-dieffenbachia-0970e7.netlify.app/',
+      featured: true,
+      image: '/projects/lana-project.png'
     },
     {
       id: 2,
@@ -43,12 +45,15 @@ const Projects = () => {
         { name: 'Jupyter', icon: SiJupyter, color: 'text-orange-500' },
         { name: 'Pandas', icon: SiPandas, color: 'text-red-400' },
         { name: 'NumPy', icon: SiNumpy, color: 'text-blue-500' },
-        { name: 'NASA APIs', icon: SiNasa, color: 'text-blue-600' }
+        { name: 'NASA APIs', icon: SiNasa, color: 'text-blue-600' },
+        { name: 'Swagger', icon: SiSwagger, color: 'text-green-600' },
+        { name: 'Geolocation API', icon: SiGooglemaps, color: 'text-red-500' }
       ],
       github: 'https://github.com/bethwel3001/predictions',
       demo: null,
       featured: true,
-      award: 'Galactic Problem Solver'
+      award: 'Galactic Problem Solver',
+      image: '/projects/nasa-spaceapps.jpg'
     },
     {
       id: 3,
@@ -69,7 +74,8 @@ const Projects = () => {
       ],
       github: 'https://github.com/bethwel3001/connectlink',
       demo: null,
-      featured: true
+      featured: true,
+      image: '/projects/connectlink.png'
     },
     {
       id: 4,
@@ -89,10 +95,11 @@ const Projects = () => {
         { name: 'Coffee', icon: FaCoffee, color: 'text-yellow-700' },
         { name: 'Vibes', icon: FaMusic, color: 'text-red-400' }
       ],
-      github: 'https://github.com/bethwel3001/vibefy',
+      github: 'https://github.com/bethwel3001/VibeVerse',
       demo: null,
       featured: true,
-      hackathon: 'Vibe Coding Hackathon 2025 - PLP Africa'
+      hackathon: 'Vibe Coding Hackathon 2025 - PLP Africa',
+      image: '/projects/vibefy.png'
     }
   ];
 
@@ -124,6 +131,13 @@ const Projects = () => {
     return colors[sdg] || 'bg-gray-500';
   };
 
+  const handleImageError = (projectId) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [projectId]: true
+    }));
+  };
+
   // Empty state component
   const EmptyState = () => {
     const getEmptyStateMessage = () => {
@@ -143,7 +157,6 @@ const Projects = () => {
             action: 'View Development Projects'
           };
         case 'fun':
-          // This should show VibeFy, but keeping for consistency
           return filteredProjects.length === 0 ? {
             icon: HiLightBulb,
             title: 'Creative Projects in Development',
@@ -179,7 +192,7 @@ const Projects = () => {
           </p>
           <button
             onClick={() => setFilter('all')}
-            className="bg-gray-700 hover:bg-gray-600 text-gray-300 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2"
+            className="bg-gray-700 hover:bg-gray-600 text-gray-300 px-6 py-3 rounded-lg font-medium transition-colors duration-300 inline-flex items-center space-x-2"
           >
             <span>{emptyState.action}</span>
             <HiChevronRight className="w-4 h-4" />
@@ -208,7 +221,7 @@ const Projects = () => {
             <button
               key={category.id}
               onClick={() => setFilter(category.id)}
-              className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition-all text-sm md:text-base flex items-center space-x-1 ${
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition-colors text-sm md:text-base flex items-center space-x-1 ${
                 filter === category.id
                   ? 'bg-green-500 text-white shadow-lg'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
@@ -226,21 +239,60 @@ const Projects = () => {
             filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:border-green-400/30 hover:scale-[1.02]"
+                className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 transition-colors duration-300 hover:border-green-400/30"
               >
-                {/* Project Header */}
-                <div className="h-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 relative overflow-hidden">
+                {/* Project Header with Image */}
+                <div className="h-48 relative overflow-hidden">
+                  {project.image && !imageErrors[project.id] ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      onError={() => handleImageError(project.id)}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center">
+                      <div className="text-center p-4">
+                        <div className="w-12 h-12 bg-gray-700/50 rounded-full flex items-center justify-center mx-auto mb-3">
+                          <HiFolder className="w-6 h-6 text-gray-400" />
+                        </div>
+                        <p className="text-gray-400 text-sm">Project Preview</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Badge Overlay */}
                   <div className="absolute top-4 right-4">
-                    <span className={`${getSdgColor(project.sdg)} text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium`}>
+                    <span className={`${getSdgColor(project.sdg)} text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium backdrop-blur-sm`}>
                       {project.category === 'fun' ? 'Fun Project' : `SDG ${project.sdg}`}
                     </span>
                   </div>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+                  
+                  {/* Award Badge */}
+                  {project.award && (
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-xs md:text-sm font-medium backdrop-blur-sm">
+                        🏆 {project.award}
+                      </span>
+                    </div>
+                  )}
+                  
+                  {/* Hackathon Badge */}
+                  {project.hackathon && (
+                    <div className="absolute bottom-4 left-4">
+                      <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
+                        {project.hackathon}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Hover Overlay with Links */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity flex space-x-3">
                       {project.demo && (
                         <a
                           href={project.demo}
-                          className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors hover:scale-110"
+                          className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors"
                           aria-label="Live Demo"
                         >
                           <HiExternalLink className="w-4 h-4 md:w-5 md:h-5" />
@@ -248,7 +300,7 @@ const Projects = () => {
                       )}
                       <a
                         href={project.github}
-                        className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors hover:scale-110"
+                        className="bg-white text-gray-900 p-2 md:p-3 rounded-full hover:bg-gray-100 transition-colors"
                         aria-label="GitHub Repository"
                       >
                         <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
@@ -310,15 +362,15 @@ const Projects = () => {
         </div>
 
         {/* Call to Action */}
-      <div className="text-center mt-12 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm max-w-md mx-auto">
+        <div className="text-center mt-12 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm max-w-md mx-auto">
           <p className="text-gray-400 mb-4 text-base">
             Ready to collaborate on meaningful projects?
           </p>
           <a
             href="#contact"
-            className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2 text-sm"
-             >
-          <span>Start a Collaboration</span>
+            className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 inline-flex items-center space-x-2 text-sm"
+          >
+            <span>Start a Collaboration</span>
             <HiChevronRight className="w-4 h-4" />
           </a>
         </div>
