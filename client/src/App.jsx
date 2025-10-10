@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useTheme } from './hooks/useTheme';
 import Navbar from './components/Navbar';
 import LoadingScreen from './components/LoadingScreen';
@@ -13,19 +14,15 @@ import Services from './sections/Services';
 import Contact from './sections/Contact';
 import ProfileSection from './sections/ProfileSection';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
-function App() {
+// Component to conditionally render navbar and footer
+const AppContent = () => {
+  const location = useLocation();
   const { isDark } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState('portfolio');
 
   useEffect(() => {
-    // Check if we're on blog page
-    const path = window.location.pathname;
-    if (path === '/blog') {
-      setCurrentPage('blog');
-    }
-
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -33,12 +30,13 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Don't show navbar and footer on blog pages
+  const isBlogPage = location.pathname.startsWith('/blog');
+  const showNavbar = !isBlogPage;
+  const showFooter = !isBlogPage;
+
   if (isLoading) {
     return <LoadingScreen />;
-  }
-
-  if (currentPage === 'blog') {
-    return <Blog />;
   }
 
   return (
@@ -46,21 +44,37 @@ function App() {
       isDark ? 'dark' : ''
     }`}>
       <div className="bg-gray-900">
-        <Navbar />
+        {showNavbar && <Navbar />}
         <main>
-          <Hero />
-          <TechStack />
-          <About />
-          <Experience />
-          <Projects />
-          <Services />
-          <Contact />
-          <ProfileSection />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <TechStack />
+                <About />
+                <Experience />
+                <Projects />
+                <Services />
+                <Contact />
+                <ProfileSection />
+              </>
+            } />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
         </main>
-        <Footer />
+        {showFooter && <Footer />}
         <BackToTop />
       </div>
     </div>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
