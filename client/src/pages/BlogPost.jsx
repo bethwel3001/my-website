@@ -26,7 +26,7 @@ const BlogPost = () => {
         }
 
         setBlog(blogPost);
-        setComments([]); // No comments functionality yet
+        setComments([]);
         
       } catch (err) {
         setError('Failed to load blog post. Please try again later.');

@@ -85,9 +85,6 @@ const Blog = () => {
   if (loading) {
     return <BlogLoadingSkeleton />;
   }
-
-  // In Blog.jsx, update the error handling section:
-
 if (error) {
   return (
     <BlogError 
@@ -197,7 +194,6 @@ if (error) {
           </div>
         </div>
       </div>
-
       <BlogFooter />
     </div>
   );
