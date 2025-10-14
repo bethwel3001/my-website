@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaRocket, FaUserFriends, FaCode, FaCertificate } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
 
@@ -11,7 +10,7 @@ const Experience = () => {
       period: 'Oct 2024-Present',
       description: 'Awarded the Google Developer Groups on campus Co-Lead position focusing on Website Development track. Leading tech community initiatives and mentoring students in web technologies.',
       achievements: ['Website Development Track', 'Community Leadership', 'Student Mentorship'],
-      blogLink: '/blog/gdg-colead-journey'
+      blogLink: 'blog/gdg-community-leadership'
     },
     {
       icon: FaRocket,
