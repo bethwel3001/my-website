@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { HiSearch, HiTrendingUp, HiHome } from 'react-icons/hi';
-import { FaRocket, FaUsers, FaCode, FaLaptopCode } from 'react-icons/fa';
-import { BlogCard, BlogFooter, BlogLoadingSkeleton } from '../components/BlogComponents';
+import { HiSearch, HiHome } from 'react-icons/hi';
+import { BlogCard, BlogFooter, BlogLoadingSkeleton, BlogError } from '../components/BlogComponents';
 import { getAllBlogs, getBlogsByCategory } from '../utils/blogData';
 
 const Blog = () => {
@@ -14,17 +13,18 @@ const Blog = () => {
   const [error, setError] = useState(null);
 
   const categories = [
-    { id: 'all', name: 'All Posts', icon: HiTrendingUp },
-    { id: 'tech', name: 'Tech', icon: FaLaptopCode },
-    { id: 'events', name: 'Events', icon: FaUsers },
-    { id: 'hackathons', name: 'Hackathons', icon: FaRocket },
-    { id: 'coding', name: 'Coding', icon: FaCode }
+    { id: 'all', name: 'All Posts' },
+    { id: 'tech', name: 'Tech' },
+    { id: 'events', name: 'Events' },
+    { id: 'hackathons', name: 'Hackathons' },
+    { id: 'coding', name: 'Coding' }
   ];
 
   useEffect(() => {
     const loadBlogs = async () => {
       try {
         setLoading(true);
+        // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 800));
         const allBlogs = getAllBlogs();
         setBlogs(allBlogs);
@@ -55,72 +55,93 @@ const Blog = () => {
 
   const handleLike = async (blogId) => {
     try {
-      setBlogs(prev => prev.map(blog =>
-        blog.id === blogId ? { ...blog, likes: blog.likes + 1 } : blog
-      ));
+      // Like functionality not yet implemented
+      console.log('Like functionality coming soon for blog:', blogId);
     } catch (err) {
-      setError('Failed to like post. Please try again.');
+      console.error('Error with like functionality:', err);
     }
   };
 
   const handleShare = async (blog) => {
     try {
-      if (navigator.share) {
-        await navigator.share({
-          title: blog.title,
-          text: blog.excerpt,
-          url: `${window.location.origin}/blog/${blog.slug}`,
-        });
-      } else {
+      const tweetText = `Check out this article: ${blog.title} by Bethwel Kiplagat`;
+      const url = `${window.location.origin}/blog/${blog.slug}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(url)}`;
+      
+      window.open(twitterUrl, '_blank', 'width=550,height=420');
+    } catch (err) {
+      console.error('Error sharing:', err);
+      // Fallback: copy to clipboard
+      try {
         await navigator.clipboard.writeText(`${window.location.origin}/blog/${blog.slug}`);
         alert('Link copied to clipboard!');
+      } catch (clipboardErr) {
+        console.error('Clipboard error:', clipboardErr);
+        alert('Sharing failed. Please copy the URL manually.');
       }
-    } catch (err) {
-      console.log('Error sharing:', err);
     }
   };
 
-  if (loading) return <BlogLoadingSkeleton />;
-  if (error) return <div className="text-red-400 text-center p-8">{error}</div>;
+  if (loading) {
+    return <BlogLoadingSkeleton />;
+  }
+
+  // In Blog.jsx, update the error handling section:
+
+if (error) {
+  return (
+    <BlogError 
+      error={error} 
+      onRetry={() => window.location.reload()} 
+    />
+  );
+}
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <Link to="/" className="inline-flex items-center text-gray-400 hover:text-green-400 transition-colors group">
-          <HiHome className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-          <span>Back to Home</span>
-        </Link>
+    <div className="min-h-screen bg-gray-900">
+      {/* Navigation */}
+      <div className="bg-gray-900 pt-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center text-gray-400 hover:text-green-400 transition-colors"
+          >
+            <HiHome className="w-5 h-5 mr-2" />
+            <span>Back to Home</span>
+          </Link>
+        </div>
       </div>
 
-      <div className="bg-gradient-to-br from-gray-800 to-gray-900 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Blog Header */}
+      <div className="bg-gray-900 border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Tech Insights & Stories</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Tech Insights & Stories
+            </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Sharing my journey through hackathons, community events, and technical adventures
             </p>
           </div>
           
+          {/* Category Navigation */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-colors text-sm md:text-base ${
-                    selectedCategory === category.id
-                      ? 'bg-green-500 text-white shadow-lg'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                  }`}
-                >
-                  <Icon className="w-4 h-4 md:w-5 md:h-5" />
-                  <span>{category.name}</span>
-                </button>
-              );
-            })}
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-3 rounded-lg font-medium transition-colors text-sm md:text-base ${
+                  selectedCategory === category.id
+                    ? 'bg-green-500 text-white'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
           </div>
 
+          {/* Search Bar */}
           <div className="max-w-md mx-auto">
             <div className="relative">
               <HiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -136,37 +157,44 @@ const Blog = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div>
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <HiTrendingUp className="w-6 h-6 mr-2 text-green-400" />
-            {selectedCategory === 'all' ? 'Latest Articles' : 
-             categories.find(cat => cat.id === selectedCategory)?.name}
-            <span className="text-gray-400 text-lg ml-2">({filteredBlogs.length})</span>
-          </h2>
+      {/* Main Content */}
+      <div className="bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-6">
+              {selectedCategory === 'all' ? 'Latest Articles' : 
+               categories.find(cat => cat.id === selectedCategory)?.name}
+              <span className="text-gray-400 text-lg ml-2">({filteredBlogs.length})</span>
+            </h2>
 
-          {filteredBlogs.length === 0 ? (
-            <div className="text-center py-12">
-              <HiSearch className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">No articles found</h3>
-              <p className="text-gray-400 mb-4">Try adjusting your search or filter criteria</p>
-              <button
-                onClick={() => {
-                  setSearchTerm('');
-                  setSelectedCategory('all');
-                }}
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                Clear Filters
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredBlogs.map((blog) => (
-                <BlogCard key={blog.id} blog={blog} onLike={handleLike} onShare={handleShare} />
-              ))}
-            </div>
-          )}
+            {filteredBlogs.length === 0 ? (
+              <div className="text-center py-12">
+                <HiSearch className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">No articles found</h3>
+                <p className="text-gray-400 mb-4">Try adjusting your search or filter criteria</p>
+                <button
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedCategory('all');
+                  }}
+                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                  Clear Filters
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredBlogs.map((blog) => (
+                  <BlogCard 
+                    key={blog.id} 
+                    blog={blog} 
+                    onLike={handleLike} 
+                    onShare={handleShare} 
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
