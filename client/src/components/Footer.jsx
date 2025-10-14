@@ -29,7 +29,7 @@ const Footer = () => {
                 <FaGithub className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/bethwelkiplagat"
+                href="https://www.linkedin.com/in/bethwel-kiplagat-1314912a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
                 className="text-gray-400 hover:text-green-400 transition-colors p-2"
                 aria-label="LinkedIn"
               >
@@ -120,7 +120,7 @@ const Footer = () => {
             <div className="text-xs text-gray-400 uppercase tracking-wide">Awards</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-400 mb-1">3+</div>
+            <div className="text-2xl font-bold text-green-400 mb-1">1.5+</div>
             <div className="text-xs text-gray-400 uppercase tracking-wide">Years Coding</div>
           </div>
           <div className="text-center">

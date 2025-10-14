@@ -413,7 +413,7 @@ export const BlogPostFooter = () => {
               All Blog Posts
             </Link>
             <a
-              href="mailto:bethwel.kip@example.com"
+              href="mailto:kiplagatbethwelk@gmail.com"
               className="text-gray-400 hover:text-green-400 transition-colors text-sm"
             >
               Contact
