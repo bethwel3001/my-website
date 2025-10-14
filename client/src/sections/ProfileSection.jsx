@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaBlog, FaWhatsapp, FaHeart, FaSmile } from 'react-icons/fa';
 
 const ProfileSection = () => {
@@ -47,23 +46,23 @@ const ProfileSection = () => {
               and connect with fellow developers and innovators.
             </p>
             
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
-              <a
-                href="/blog"
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2 text-base"
-              >
-                <FaBlog className="w-5 h-5" />
-                <span>My Blog</span>
-              </a>
-              <a
-                href="https://wa.me/254759112532"
-                className="border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2 text-base"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                <span>WhatsApp</span>
-              </a>
-            </div>
+            {/* Action Buttons - Centered on Mobile, Left on Desktop */}
+         <div className="flex flex-row justify-center md:justify-start gap-2 md:gap-4 mb-6 md:mb-12">
+           <a
+             href="/blog"
+             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2.5 rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2 text-sm md:text-base w-auto"
+           >
+             <FaBlog className="w-4 h-4 md:w-5 md:h-5" />
+             <span>My Blog</span>
+           </a>
+           <a
+             href="https://wa.me/254759112532"
+             className="border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white px-4 py-2.5 rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center space-x-2 text-sm md:text-base w-auto"
+           >
+             <FaWhatsapp className="w-4 h-4 md:w-5 md:h-5" />
+             <span>WhatsApp</span>
+           </a>
+         </div>
 
             {/* Animated Goodbye */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-4 text-lg md:text-xl">
