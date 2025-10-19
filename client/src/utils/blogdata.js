@@ -176,9 +176,9 @@ export const blogData = {
     likes: 0,
     comments: 0,
     images: [
-      { url: '/blogs/icp-hackathon-1.jpg', alt: 'ICP Hackathon Venue at Sarit Centre', size: 'medium' },
-      { url: '/blogs/icp-hackathon-2.jpg', alt: 'Smart Contract Development Session', size: 'large' },
-      { url: '/blogs/icp-hackathon-3.jpg', alt: 'Team Collaboration and Coding', size: 'small' }
+      { url: '/blogs/DSC09482-2.jpg', alt: 'ICP Hackathon Venue at Sarit Centre', size: 'medium' },
+      { url: '/blogs/DSC09628.jpg', alt: 'My Groups photo session', size: 'large' },
+      { url: '/blogs/DSC09490-2.jpg', alt: 'Team Ideation Brainstorming', size: 'small' }
     ],
     tags: ['Blockchain', 'ICP', 'Smart Contracts', 'Web3', 'Decentralized Apps', 'Motoko'],
     relevantLinks: [
