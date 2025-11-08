@@ -1,15 +1,18 @@
-# Portfolio Website - Bethwel Kiplagat
+# Portfolio.
 
+
+<div align="center">
 ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-green)
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
-
-A modern, responsive portfolio website built with React and Tailwind CSS, showcasing my projects, blog, and professional journey as a software engineer.
+</div>
+A modern, responsive portfolio website built with React,vite,express.js, node.js and Tailwind CSS, showcasing my projects, blog, and professional journey as a software engineer.
 
 ##  Live Demo
 
+<div align="center">
 [**Visit Portfolio**](https://bethwell.vercel.app) • [**Blog Section**](https://bethwell.vercel.app/blog)
-
+</div>
 ##  Features
 ###  Core Sections
 - **Home** - Hero section with quick introduction
