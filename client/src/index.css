@@ -11,9 +11,16 @@ body {
   transform-origin: top left;
 }
 
+/* Custom utility classes */
 .animate-pulse {
   animation: textBlink 1s ease-in-out infinite;
 }
+
+@keyframes textBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 /* Loading screen animations */
 @keyframes matrix-fall {
   0% {
@@ -57,6 +64,27 @@ body {
   }
 }
 
+@keyframes cursorPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Custom animation classes */
 .animate-breath {
   animation: breath 3s ease-in-out infinite;
 }
@@ -65,13 +93,11 @@ body {
   animation: cursorPulse 2s ease-in-out infinite;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out forwards;
 }
+
+/* Blog content styles */
 .blog-content {
   color: #e5e7eb !important;
   line-height: 1.75;
@@ -106,7 +132,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/*  */
 /* Error Animation Styles */
 @keyframes bob {
   0% {
@@ -170,4 +195,72 @@ body {
 .animate-rstep {
   animation: rstep 1s infinite ease-in;
   animation-delay: 0.45s;
+}
+
+/* Modal specific styles (add these for the experience modal) */
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.max-h-\[90vh\] {
+  max-height: 90vh;
+}
+
+/* Ensure modal content is visible */
+.modal-open {
+  overflow: hidden;
+}
+
+/* Custom utility for the modal */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Custom border utilities */
+.border-3 {
+  border-width: 3px;
+}
+
+/* Custom gradient utilities */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Custom scrollbar for modal */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937;
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 4px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }

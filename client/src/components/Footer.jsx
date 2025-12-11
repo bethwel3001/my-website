@@ -29,7 +29,7 @@ const Footer = () => {
                 <FaGithub className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/bethwel-kiplagat-1314912a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+                href="https://www.linkedin.com/in/iambethwelkiplagat/"
                 className="text-gray-400 hover:text-green-400 transition-colors p-2"
                 aria-label="LinkedIn"
               >

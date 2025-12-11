@@ -13,10 +13,10 @@ import Projects from './sections/Projects';
 import Services from './sections/Services';
 import Contact from './sections/Contact';
 import ProfileSection from './sections/ProfileSection';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
+// import Blog from './pages/Blog';
+// import BlogPost from './pages/BlogPost';
+import ExperienceDetail from './pages/ExperienceDetail'; 
 
-// Component to conditionally render navbar and footer
 const AppContent = () => {
   const location = useLocation();
   const { isDark } = useTheme();
@@ -30,10 +30,25 @@ const AppContent = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Don't show navbar and footer on blog pages
+  // Handle scroll to experience section when coming from detail page
+  useEffect(() => {
+    if (location.state?.scrollToExperience && !isLoading) {
+      setTimeout(() => {
+        const experienceSection = document.getElementById('experience');
+        if (experienceSection) {
+          experienceSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Clear the state
+        window.history.replaceState({}, document.title);
+      }, 100);
+    }
+  }, [location.state, isLoading]);
+
+  // Don't show navbar and footer on blog pages or experience detail pages
   const isBlogPage = location.pathname.startsWith('/blog');
-  const showNavbar = !isBlogPage;
-  const showFooter = !isBlogPage;
+  const isExperienceDetailPage = location.pathname.startsWith('/experience');
+  const showNavbar = !isBlogPage && !isExperienceDetailPage;
+  const showFooter = !isBlogPage && !isExperienceDetailPage;
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -59,8 +74,10 @@ const AppContent = () => {
                 <ProfileSection />
               </>
             } />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            {/* <Route path="/blog" element={<Blog />} /> */}
+            {/* <Route path="/blog/:slug" element={<BlogPost />} /> */}
+            {/* Add the new experience detail route */}
+            <Route path="/experience/:id" element={<ExperienceDetail />} />
           </Routes>
         </main>
         {showFooter && <Footer />}

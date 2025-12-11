@@ -143,7 +143,7 @@ const Contact = () => {
                   <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/bethwel-kiplagat-1314912a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+                  href="https://www.linkedin.com/in/iambethwelkiplagat/"
                   className="p-2 md:p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
