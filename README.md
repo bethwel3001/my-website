@@ -12,7 +12,7 @@ A modern, responsive portfolio website built with React, Vite, and Tailwind CSS,
 
 ## Live Demo
 
-[**Visit Portfolio**](https://bethwell.vercel.app)
+[**Visit Portfolio**](https://bethwell.vercel.app)&nbsp;&nbsp;&nbsp;
 [**Alternatively on Prod**](https://bethwell.comon.tech)
 ## Features
 
@@ -88,4 +88,4 @@ A modern, responsive portfolio website built with React, Vite, and Tailwind CSS,
    npm run preview      # Preview production build
    npm run lint         # Run ESLint  
    ```
- *Give a Star!*  
+ **Give a Star!**
