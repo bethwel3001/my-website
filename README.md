@@ -1,60 +1,65 @@
-# Portfolio.
-  ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-green)
-  ![React](https://img.shields.io/badge/React-18.2.0-blue)
-  ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
-A modern, responsive portfolio website built with React,vite,express.js, node.js and Tailwind CSS, showcasing my projects, blog, and professional journey as a software engineer.
+# My Website
 
-##  Live Demo
+<p align="center">
+  <img src="https://img.shields.io/badge/Portfolio-Live-green" alt="Portfolio Live" />
+  <img src="https://img.shields.io/badge/React-18.2.0-blue" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Vite-Build_Tool-646CFF" alt="Vite" />
+  <img src="https://img.shields.io/badge/Node.js-Runtime-339933" alt="Node.js" />
+</p>
 
-[**Visit Portfolio**](https://bethwell.vercel.app) • 
-[**Blog Section**](https://bethwell.vercel.app/blog)
-##  Features
-###  Core Sections
-- **Home** - Hero section with quick introduction
-- **About** - Professional background and skills
-- **Projects** - Portfolio of work with live demos
-- **Blog** - Technical articles and experiences
+A modern, responsive portfolio website built with React, Vite, and Tailwind CSS, showcasing my projects, technical skills, and professional journey as a software engineer.
+
+## Live Demo
+
+[**Visit Portfolio**](https://bethwell.vercel.app)
+[**Alternatively on Prod**](https://bethwell.comon.tech)
+## Features
+
+### Core Sections
+- **Home** - Hero section with introduction and key highlights
+- **About** - Professional background, skills, and expertise
+- **Tech Stack** - Comprehensive technology proficiency showcase
+- **Experience** - Professional journey with interactive timeline
+- **Projects** - Portfolio of work with live demos and source code
+- **Services** - Technical services and consulting offerings
 - **Contact** - Get in touch form and social links
 
-###  Technical Highlights
-- **Responsive Design** - Mobile-first approach
-- **Dark Theme** - Consistent dark mode throughout
-- **Performance Optimized** - Fast loading and smooth animations
-- **SEO Friendly** - Proper meta tags and structured data
-- **Accessible** - WCAG guidelines compliance
+### Technical Highlights
+- **Responsive Design** - Mobile-first approach with adaptive layouts
+- **Dark Theme** - Consistent dark mode throughout the application
+- **Performance Optimized** - Fast loading with optimized assets and smooth animations
+- **SEO Friendly** - Proper meta tags and structured data implementation
+- **Accessible** - WCAG guidelines compliance for inclusive design
 
-###  Blog Features
-- **Category Filtering** - Tech, Hackathons, Events, Coding
-- **Search Functionality** - Find articles quickly
-- **Reading Stats** - Time to read and view counts
-- **Social Sharing** - Share articles on X (Twitter)
-- **Related Links** - Additional resources in posts
+### Interactive Components
+- **Experience Timeline** - Interactive timeline with detailed modal views
+- **Project Cards** - Filterable project showcase with technology tags
+- **Tech Stack Visualization** - Categorized technology proficiency display
+- **Contact Form** - Functional contact form with validation
 
-##  Tech Stack
+## Tech Stack
 
 ### Frontend
-- **React 18** - Component-based architecture
-- **React Router** - Client-side routing
-- **Tailwind CSS** - Utility-first styling
-- **React Icons** - Consistent iconography
+- **React 18** - Component-based architecture with hooks
+- **React Router** - Client-side routing and navigation
+- **Tailwind CSS 4** - Utility-first styling framework
+- **React Icons** - Consistent icon library integration
 
 ### Development
-- **Vite** - Fast build tool and dev server
-- **ESLint** - Code linting and quality
-- **PostCSS** - CSS processing
+- **Vite** - Fast build tool and development server
+- **ESLint** - Code linting and quality assurance
+- **PostCSS** - CSS processing and optimization
 
 ### Deployment
-- **Netlify** - Static site hosting
-- **GitHub Actions** - CI/CD pipeline
-
+- **Vercel** - Static site hosting and continuous deployment
+- **GitHub Actions** - CI/CD pipeline automation
 
 ## Getting Started
+
 ### Prerequisites
 - Node.js (v18 or higher)
-- npm or yarn 
-```bash
-i recommend and i used pnpm
-```
+- Package manager (npm, yarn, or pnpm recommended)
 
 ### Installation
 
