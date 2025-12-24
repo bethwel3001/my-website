@@ -1,4 +1,3 @@
-// src/components/ExperienceModal.jsx
 import { FaTimes } from 'react-icons/fa';
 import { useEffect } from 'react';
 
@@ -12,7 +11,12 @@ const ExperienceModal = ({ experience, onClose }) => {
     };
 
     document.addEventListener('keydown', handleEscKey);
-    return () => document.removeEventListener('keydown', handleEscKey);
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    };
   }, [onClose]);
 
   // Handle click outside modal
@@ -22,132 +26,137 @@ const ExperienceModal = ({ experience, onClose }) => {
     }
   };
 
-  // Prevent modal scroll from affecting background
-  const handleModalScroll = (e) => {
-    e.stopPropagation();
-  };
-
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/70 backdrop-blur-sm overflow-y-auto"
       onClick={handleBackdropClick}
     >
       <div 
-        className="relative w-full max-w-4xl max-h-[90vh] bg-gray-900 rounded-2xl border border-gray-700 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-4xl bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-700 shadow-2xl my-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button - X only */}
+        {/* Close button - Better positioning for scrollable modal */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-50 p-2 bg-gray-800 hover:bg-gray-700 rounded-full text-gray-300 hover:text-white transition-colors border border-gray-700"
-          aria-label="Close"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 z-50 p-2 sm:p-3 bg-gray-800 hover:bg-gray-700 rounded-full text-gray-300 hover:text-white transition-colors border border-gray-700 cursor-pointer hover:scale-110 active:scale-95"
+          aria-label="Close modal"
         >
-          <FaTimes className="w-5 h-5" />
+          <FaTimes className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
         </button>
 
-        {/* Modal content with scrollable area */}
-        <div 
-          className="overflow-y-auto h-full"
-          onScroll={handleModalScroll}
-        >
-          {/* Header with gradient */}
-          <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 p-8 border-b border-gray-700">
-            <div className="flex items-start space-x-6">
-              {/* Logo */}
-              <div className="relative flex-shrink-0">
-                <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 blur-lg"></div>
-                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gray-700 bg-white flex items-center justify-center">
-                  <img 
-                    src={experience.logo} 
-                    alt={`${experience.organization} logo`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      const fallbackDiv = e.target.parentElement;
-                      fallbackDiv.innerHTML = `
-                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-blue-100">
-                          <span class="text-2xl font-bold text-gray-700">
-                            ${experience.organization.charAt(0)}
-                          </span>
-                        </div>
-                      `;
-                    }}
-                  />
+        {/* Modal content - Removed max-height constraint, let it flow naturally */}
+        <div className="overflow-y-auto">
+          {/* Header with gradient - More compact on mobile */}
+          <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 p-3 sm:p-4 md:p-8 pb-3 sm:pb-4 md:pb-6 border-b border-gray-700">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 md:gap-6">
+              {/* Logo - Smaller on mobile */}
+              <div className="flex justify-center sm:justify-start">
+                <div className="relative">
+                  <div className="absolute -inset-1 sm:-inset-1 md:-inset-2 rounded-lg bg-gradient-to-r from-green-500/30 to-blue-500/30 blur-lg"></div>
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 border-gray-700 bg-white flex items-center justify-center p-1 sm:p-1 md:p-1.5 shadow-lg">
+                    <img 
+                      src={experience.logo} 
+                      alt={`${experience.organization} logo`}
+                      className="w-full h-full object-contain"
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        objectFit: 'contain'
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        const fallbackDiv = e.target.parentElement;
+                        fallbackDiv.innerHTML = `
+                          <div class="w-full h-full flex items-center justify-center rounded-lg bg-gradient-to-br from-green-100 to-blue-100">
+                            <span class="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">
+                              ${experience.organization.charAt(0)}
+                            </span>
+                          </div>
+                        `;
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Title and organization */}
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-                  <div className="mb-4 lg:mb-0 lg:mr-4">
-                    <h2 className="text-3xl font-bold text-white mb-2">
-                      {experience.title}
-                    </h2>
-                    <p className="text-xl text-gray-300">
-                      {experience.organization}
-                    </p>
-                  </div>
-                  <span className="inline-flex text-base text-green-400 font-medium bg-green-500/10 px-4 py-2 rounded-full self-start">
-                    {experience.period}
-                  </span>
+              {/* Title and organization - More compact on mobile */}
+              <div className="flex-1 min-w-0 text-center sm:text-left">
+                <div className="mb-2 sm:mb-3 md:mb-4">
+                  <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white mb-1 leading-tight">
+                    {experience.title}
+                  </h2>
+                  <p className="text-sm sm:text-base md:text-xl text-gray-300">
+                    {experience.organization}
+                  </p>
                 </div>
 
-                {/* Achievement badges */}
-                <div className="flex flex-wrap gap-2">
-                  {experience.achievements.map((achievement, idx) => (
-                    <span
-                      key={idx}
-                      className="text-sm bg-gray-800 text-gray-300 px-3 py-1.5 rounded-full border border-gray-700"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
+                {/* Period badge */}
+                <div className="flex justify-center sm:justify-start mb-2 sm:mb-3 md:mb-4">
+                  <span className="inline-flex text-xs sm:text-sm md:text-base text-green-400 font-medium bg-green-500/10 px-2 sm:px-3 md:px-4 py-1 sm:py-1 md:py-2 rounded-full border border-green-500/20">
+                    {experience.period}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Content body */}
-          <div className="p-8 space-y-8">
+          {/* Content body - More compact spacing on mobile */}
+          <div className="p-3 sm:p-4 md:p-8 space-y-4 sm:space-y-6 md:space-y-8">
             {/* Detailed description */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Role Overview</h3>
-              <div className="prose prose-lg max-w-none">
-                <div className="text-gray-300 whitespace-pre-line leading-relaxed space-y-4">
+              <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6 pb-2 border-b border-gray-800">
+                Role Overview
+              </h3>
+              <div className="prose prose-sm sm:prose-base md:prose-lg max-w-none">
+                <div className="text-gray-300 whitespace-pre-line leading-relaxed space-y-3 sm:space-y-4 md:space-y-6">
                   {experience.detailedDescription.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx}>{paragraph}</p>
+                    <p key={idx} className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-base">
+                      {paragraph}
+                    </p>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Skills section */}
-            {experience.skills && experience.skills.length > 0 && (
-              <div>
-                <h3 className="text-2xl font-semibold text-white mb-4">Skills & Technologies</h3>
-                <div className="flex flex-wrap gap-3">
-                  {experience.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="px-4 py-2 bg-gray-800 text-green-400 rounded-full text-sm font-medium border border-gray-700"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            {/* Combined sections with reduced spacing */}
+            <div className="space-y-4 sm:space-y-6">
+              {/* Achievements section */}
+              {experience.achievements && experience.achievements.length > 0 && (
+                <div>
+                  <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white mb-2 sm:mb-3 md:mb-6 pb-2 border-b border-gray-800">
+                    Key Achievements
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3">
+                    {experience.achievements.map((achievement, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs sm:text-sm bg-gray-800/80 text-gray-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-700"
+                      >
+                        {achievement}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Optional call to action - Only if you want some action at the bottom */}
-            <div className="pt-4 border-t border-gray-800">
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="/contact"
-                  className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-all hover:scale-105"
-                >
-                  Get in Touch
-                </a>
-              </div>
+              {/* Skills section */}
+              {experience.skills && experience.skills.length > 0 && (
+                <div>
+                  <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-white mb-2 sm:mb-3 md:mb-6 pb-2 border-b border-gray-800">
+                    Skills & Technologies
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3">
+                    {experience.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2.5 bg-gray-800/80 text-green-400 rounded-lg text-xs sm:text-sm font-medium border border-gray-700"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

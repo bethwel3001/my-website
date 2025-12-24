@@ -55,10 +55,10 @@ const Services = () => {
                 key={index}
                 className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-700/50 transition-all duration-300 hover:border-green-400/30 hover:transform hover:scale-[1.02]"
               >
-                {/* Header */}
+                {/* Header with transparent icon */}
                 <div className="flex items-start space-x-4 mb-6">
-                  <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-xl group-hover:bg-green-500/20 transition-colors">
-                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
+                  <div className="p-3 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-green-400 group-hover:text-green-300" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 truncate">
@@ -85,25 +85,18 @@ const Services = () => {
                   </ul>
                 </div>
 
-                {/* Footer */}
-                <div className="flex justify-between items-center pt-4 border-t border-gray-700/50">
+                {/* Footer - Price only, no Discuss button */}
+                <div className="pt-4 border-t border-gray-700/50">
                   <span className="text-green-400 font-semibold text-sm md:text-base">
                     {service.price}
                   </span>
-                  <a
-                    href="#contact"
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 md:px-6 md:py-2 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 hover:scale-105 flex items-center space-x-2"
-                  >
-                    <FaComments className="w-3 h-3 md:w-4 md:h-4" />
-                    <span>Discuss</span>
-                  </a>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Single Discuss button */}
         <div className="text-center mt-12 md:mt-16">
           <div className="backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-700/50 max-w-2xl mx-auto">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">

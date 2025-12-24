@@ -13,9 +13,6 @@ import Projects from './sections/Projects';
 import Services from './sections/Services';
 import Contact from './sections/Contact';
 import ProfileSection from './sections/ProfileSection';
-// import Blog from './pages/Blog';
-// import BlogPost from './pages/BlogPost';
-import ExperienceDetail from './pages/ExperienceDetail'; 
 
 const AppContent = () => {
   const location = useLocation();
@@ -30,25 +27,10 @@ const AppContent = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Handle scroll to experience section when coming from detail page
-  useEffect(() => {
-    if (location.state?.scrollToExperience && !isLoading) {
-      setTimeout(() => {
-        const experienceSection = document.getElementById('experience');
-        if (experienceSection) {
-          experienceSection.scrollIntoView({ behavior: 'smooth' });
-        }
-        // Clear the state
-        window.history.replaceState({}, document.title);
-      }, 100);
-    }
-  }, [location.state, isLoading]);
-
-  // Don't show navbar and footer on blog pages or experience detail pages
+  // Don't show navbar and footer on blog pages
   const isBlogPage = location.pathname.startsWith('/blog');
-  const isExperienceDetailPage = location.pathname.startsWith('/experience');
-  const showNavbar = !isBlogPage && !isExperienceDetailPage;
-  const showFooter = !isBlogPage && !isExperienceDetailPage;
+  const showNavbar = !isBlogPage;
+  const showFooter = !isBlogPage;
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -74,10 +56,6 @@ const AppContent = () => {
                 <ProfileSection />
               </>
             } />
-            {/* <Route path="/blog" element={<Blog />} /> */}
-            {/* <Route path="/blog/:slug" element={<BlogPost />} /> */}
-            {/* Add the new experience detail route */}
-            <Route path="/experience/:id" element={<ExperienceDetail />} />
           </Routes>
         </main>
         {showFooter && <Footer />}

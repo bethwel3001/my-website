@@ -46,7 +46,6 @@ const About = () => {
               From computer science student to community leader, I bridge technology 
               with human connection to create meaningful impact.
             </p>
-            {/* <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-green-500 to-transparent"></div> */}
           </div>
         </div>
 
@@ -84,19 +83,19 @@ const About = () => {
             {/* Enhanced Fun Note */}
             <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm transform transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">💡</span>
+                <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-green-400 text-lg">💭</span>
                 </div>
                 <div>
                   <p className="text-green-400 text-sm leading-relaxed">
-                    <span className="font-semibold">I hate debugging. Just kidding!</span> - I actually enjoy the puzzle-solving aspect of development. Every bug is just a mystery waiting to be solved.
+                    <span className="font-semibold">Fun fact:</span> I actually enjoy the puzzle-solving aspect of development. Every bug is just a mystery waiting to be solved.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Enhanced Personality Grid */}
+          {/* Enhanced Personality Grid - Icons without borders */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {personalityItems.map((item, index) => {
               const Icon = item.icon;
@@ -107,8 +106,9 @@ const About = () => {
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="p-3 bg-white/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6 text-white" />
+                      {/* Transparent icon container - no border */}
+                      <div className="p-3 bg-transparent group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-6 h-6 text-white/90 group-hover:text-white" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">

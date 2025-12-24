@@ -1,8 +1,7 @@
-import { FaRocket, FaUserFriends, FaCode, FaCertificate, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
 import { useState, useRef, useEffect } from 'react';
 import ExperienceModal from '../components/ExperienceModal';
-import { useNavigate } from 'react-router-dom';
 
 const lolweLogo = '/experience/lolwe.jpeg';
 const ictAuthorityLogo = '/experience/ICTA.webp';
@@ -15,7 +14,6 @@ const gdgKisumuLogo = '/experience/gdgkisumu.webp';
 const plpAfricaLogo = '/experience/plp.webp'; 
 
 const Experience = () => {
-  const navigate = useNavigate();
   const [selectedExperience, setSelectedExperience] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const experienceSectionRef = useRef(null);
@@ -218,37 +216,12 @@ Certification highlights:
   };
 
   const handleReadMore = (experience) => {
-    // For large screens: show modal
-    // For small screens: navigate to detail page
-    if (window.innerWidth >= 768) {
-      setSelectedExperience(experience);
-      document.body.style.overflow = 'hidden'; 
-    } else {
-      // Store the experience data in sessionStorage for the detail page
-      sessionStorage.setItem('selectedExperience', JSON.stringify(experience));
-      navigate(`/experience/${experience.id}`, { 
-        state: { fromExperienceSection: true } 
-      });
-    }
+    setSelectedExperience(experience);
   };
 
   const handleCloseModal = () => {
     setSelectedExperience(null);
-    document.body.style.overflow = 'auto'; // Restore scrolling
   };
-
-  // Effect to handle modal when window resizes
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768 && selectedExperience) {
-        // If resized to small screen while modal is open, close it
-        handleCloseModal();
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [selectedExperience]);
 
   const ExperienceItem = ({ exp, index }) => {
     return (
@@ -269,17 +242,22 @@ Certification highlights:
             <div className="flex items-start space-x-4 mb-4">
               <div className="flex items-center justify-center">
                 <div className="relative">
-                  <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 blur-sm"></div>
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gray-700 bg-white flex items-center justify-center">
+                  <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-green-500/20 to-blue-500/20 blur-sm"></div>
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden border-2 border-gray-700 bg-gray-50 flex items-center justify-center">
                     <img 
                       src={exp.logo} 
                       alt={`${exp.organization} logo`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain p-1"
+                      style={{ 
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        objectFit: 'contain'
+                      }}
                       onError={(e) => {
                         e.target.style.display = 'none';
                         const fallbackDiv = e.target.parentElement;
                         fallbackDiv.innerHTML = `
-                          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-blue-100">
+                          <div class="w-full h-full flex items-center justify-center rounded-lg bg-gradient-to-br from-green-100 to-blue-100">
                             <span class="text-xl font-bold text-gray-700">
                               ${exp.organization.charAt(0)}
                             </span>
@@ -290,16 +268,17 @@ Certification highlights:
                   </div>
                 </div>
               </div>
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
+                {/* Title and period - Better layout for mobile */}
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-white mb-2 sm:mb-0 pr-2 sm:pr-0">
                     {exp.title}
                   </h3>
-                  <span className="text-sm text-green-400 font-medium bg-green-500/10 px-3 py-1 rounded-full mt-1 sm:mt-0">
+                  <span className="text-sm text-green-400 font-medium bg-green-500/10 px-3 py-1 rounded-full w-fit sm:w-auto">
                     {exp.period}
                   </span>
                 </div>
-                <p className="text-lg text-gray-300 mb-3">
+                <p className="text-lg text-gray-300 mb-3 mt-2">
                   {exp.organization}
                 </p>
               </div>
@@ -323,7 +302,7 @@ Certification highlights:
             {/* Read More Button */}
             <button
               onClick={() => handleReadMore(exp)}
-              className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
+              className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105 cursor-pointer"
             >
               <HiExternalLink className="w-4 h-4" />
               <span>Read More</span>
@@ -372,7 +351,7 @@ Certification highlights:
           <div className="text-center mt-12" ref={showMoreButtonRef}>
             <button
               onClick={toggleShowAll}
-              className="inline-flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 border border-gray-700 group"
+              className="inline-flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-all hover:scale-105 border border-gray-700 group cursor-pointer"
             >
               {showAll ? (
                 <>
@@ -390,7 +369,7 @@ Certification highlights:
         </div>
       </section>
 
-      {/* Modal for large screens - Always render but conditionally show */}
+      {/* Modal for experience details */}
       {selectedExperience && (
         <ExperienceModal 
           experience={selectedExperience} 
