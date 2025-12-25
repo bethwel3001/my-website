@@ -1,6 +1,6 @@
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import ExperienceModal from '../components/ExperienceModal';
 
 const lolweLogo = '/experience/lolwe.jpeg';
