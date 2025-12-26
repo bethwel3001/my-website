@@ -50,23 +50,21 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-4 sm:px-8 scroll-smooth relative overflow-hidden"
     >
-      {/* ====== Soft Floating Glow Orbs ====== */}
       <div className="absolute -top-10 -left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute top-1/3 -right-20 w-60 h-60 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
 
       <div className="max-w-4xl w-full text-center mt-16 opacity-0 animate-fadeInUp relative z-10">
 
-        {/* ====== Professional Badges ====== */}
         <div className="flex justify-center gap-3 mb-12 flex-wrap mt-2">
           {/* NASA Badge */}
           <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 text-green-400 border border-green-500/20 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(34,197,94,0.3)]">
-            <span>NASA Galactic Problem Solver</span>
+            <span>Galactic Problem Solver</span>
           </div>
           
           {/* GDG Badge */}
           <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 text-blue-400 border border-blue-500/20 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-            <span>GDG Community Lead</span>
+            <span>GDG Lead</span>
           </div>
           
           {/* Open Source Badge */}
@@ -75,7 +73,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ====== Name & Title ====== */}
         <div className="mb-10">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 leading-snug min-h-[4.5rem] flex justify-center items-center">
             {/* First Name */}
@@ -107,7 +104,6 @@ const Hero = () => {
             Software Engineer & Community Leader
           </h2>
 
-          {/* ====== Description ====== */}
           <div className={`max-w-2xl mx-auto space-y-4 transition-all duration-500 delay-300 ${
             isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
@@ -125,7 +121,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ====== Action Buttons ====== */}
         <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 transition-all duration-500 delay-500 ${
           isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
@@ -154,7 +149,6 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* ====== Stats Section ====== */}
         <div className={`grid grid-cols-3 gap-6 max-w-md mx-auto border-t border-gray-800 pt-8 mb-12 relative z-10 transition-all duration-500 delay-700 ${
           isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
@@ -189,7 +183,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ====== Explore More Button ====== */}
         <div className={`mt-6 flex justify-center relative z-10 transition-all duration-500 delay-1000 ${
           isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
