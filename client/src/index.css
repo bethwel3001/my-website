@@ -97,41 +97,6 @@ body {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Blog content styles */
-.blog-content {
-  color: #e5e7eb !important;
-  line-height: 1.75;
-}
-
-.blog-content h2 {
-  color: #ffffff !important;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.blog-content h3 {
-  color: #ffffff !important;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.blog-content p {
-  color: #e5e7eb !important;
-  margin-bottom: 1.5rem;
-}
-
-.blog-content ul {
-  color: #e5e7eb !important;
-  margin-bottom: 1.5rem;
-}
-
-.blog-content li {
-  color: #e5e7eb !important;
-  margin-bottom: 0.5rem;
-}
-
 /* Error Animation Styles */
 @keyframes bob {
   0% {
