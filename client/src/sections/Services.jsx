@@ -70,14 +70,14 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Features */}
+                {/* Features - Centered on small screens */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-white mb-3 text-sm md:text-base">
+                  <h4 className="font-medium text-white mb-3 text-sm md:text-base text-center sm:text-left">
                     Core Offerings
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 text-center sm:text-left">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center space-x-3 text-gray-400">
+                      <li key={idx} className="flex items-center space-x-3 text-gray-400 sm:justify-start justify-center">
                         <div className="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></div>
                         <span className="text-xs md:text-sm">{feature}</span>
                       </li>
@@ -85,9 +85,9 @@ const Services = () => {
                   </ul>
                 </div>
 
-                {/* Footer - Price only, no Discuss button */}
+                {/* Footer - Price centered on small screens */}
                 <div className="pt-4 border-t border-gray-700/50">
-                  <span className="text-green-400 font-semibold text-sm md:text-base">
+                  <span className="text-green-400 font-semibold text-sm md:text-base block text-center sm:text-left">
                     {service.price}
                   </span>
                 </div>
