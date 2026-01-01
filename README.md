@@ -8,12 +8,12 @@
   <img src="https://img.shields.io/badge/Node.js-Runtime-339933" alt="Node.js" />
 </p>
 
-A modern, responsive portfolio website built with React, Vite, and Tailwind CSS, showcasing my projects, technical skills, and professional journey as a software engineer.
+My website; built with React, Vite, and Tailwind CSS, showcasing my projects, technical skills, and professional journey as a software engineer.
 
 ## Live Demo
 
-[**Visit Portfolio**](https://bethwell.vercel.app)&nbsp;&nbsp;&nbsp;
-[**Alternatively on Prod**](https://bethwell.comon.tech)
+[**Live on Vercel**](https://bethwell.vercel.app)&nbsp;&nbsp;&nbsp;
+[**Hosted with Comon**](https://bethwell.comon.tech)
 ## Features
 
 ### Core Sections
