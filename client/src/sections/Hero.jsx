@@ -150,7 +150,7 @@ const Hero = () => {
             className="group bg-gray-800 border border-gray-700 hover:border-gray-500 text-gray-200 hover:text-white px-7 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 text-base md:text-lg flex items-center space-x-2 relative z-10"
           >
             <FaMedium className="w-5 h-5 group-hover:text-white transition-colors" />
-            <span>Angular Articles</span>
+            <span>My Articles</span>
           </a>
 
           <a
@@ -168,15 +168,7 @@ const Hero = () => {
         <div className={`grid grid-cols-3 gap-6 max-w-md mx-auto border-t border-gray-800 pt-8 mb-12 relative z-10 transition-all duration-500 delay-700 ${
           isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
-          {/* Angular Articles */}
-          <div className="text-center transition-all duration-300 hover:scale-105">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent mb-2">
-              1
-            </div>
-            <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide font-medium">
-              Angular Article
-            </div>
-          </div>
+          
           
           {/* Community */}
           <div className="text-center transition-all duration-300 hover:scale-105">
@@ -187,7 +179,15 @@ const Hero = () => {
               Community
             </div>
           </div>
-          
+          {/* Angular Articles */}
+          <div className="text-center transition-all duration-300 hover:scale-105">
+            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent mb-2">
+              1
+            </div>
+            <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide font-medium">
+              Angular Article
+            </div>
+          </div>
           {/* Awards */}
           <div className="text-center transition-all duration-300 hover:scale-105">
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-2">

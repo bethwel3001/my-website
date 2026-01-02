@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand & Status */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Be Tu</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">BETHWEL</h3>
             <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
               <div className="relative">
                 <FaCircle className="w-4 h-4 text-green-500 animate-ping absolute" />
@@ -62,9 +62,6 @@ const Footer = () => {
               <a href="#about" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
                 About
               </a>
-              <a href="#projects" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
-                Projects
-              </a>
               <a href="#services" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
                 Services
               </a>
@@ -93,7 +90,7 @@ const Footer = () => {
                 href="mailto:kiplagatbethwelk@gmail.com"
                 className="text-green-400 hover:text-green-300 transition-colors block text-base md:text-lg"
               >
-                hello@bethwel.dev
+                kiplagatbethwel@gmail.com
               </a>
               <p className="text-gray-400 text-base md:text-lg">Kisumu, Kenya</p>
               <p className="text-gray-400 text-base md:text-lg">Open for collaborations</p>
@@ -132,7 +129,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-gray-400 text-base md:text-lg text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} Be Tu. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} BETHWEL. All rights reserved.</p>
           </div>
           
           <div className="flex items-center space-x-2 text-gray-400 text-base md:text-lg">

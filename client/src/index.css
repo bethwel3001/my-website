@@ -162,7 +162,7 @@ body {
   animation-delay: 0.45s;
 }
 
-/* Modal specific styles (add these for the experience modal) */
+/* Modal specific styles*/
 .fixed {
   position: fixed;
 }
@@ -228,4 +228,26 @@ body {
 
 .modal-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
+}
+/* Hide default cursor */
+* {
+  cursor: none !important;
+}
+
+/* Show default cursor on touch devices */
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Ensure custom cursor doesn't interfere with inputs */
+input, textarea, select, button {
+  cursor: none !important;
+}
+
+@media (max-width: 768px) {
+  input, textarea, select, button {
+    cursor: auto !important;
+  }
 }

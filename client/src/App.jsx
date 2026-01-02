@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useTheme } from './hooks/useTheme';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import LoadingScreen from './components/LoadingScreen';
 import BackToTop from './components/BackToTop';
@@ -13,10 +12,8 @@ import Projects from './sections/Projects';
 import Services from './sections/Services';
 import Contact from './sections/Contact';
 import ProfileSection from './sections/ProfileSection';
-
+import CustomCursor from './components/CustomCursor'; 
 const AppContent = () => {
-  const location = useLocation();
-  const { isDark } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,21 +24,15 @@ const AppContent = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Don't show navbar and footer on blog pages
-  const isBlogPage = location.pathname.startsWith('/blog');
-  const showNavbar = !isBlogPage;
-  const showFooter = !isBlogPage;
-
   if (isLoading) {
     return <LoadingScreen />;
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'dark' : ''
-    }`}>
+    <div className={`min-h-screen transition-colors duration-300`}>
       <div className="bg-gray-900">
-        {showNavbar && <Navbar />}
+        <Navbar />
+        <CustomCursor />
         <main>
           <Routes>
             <Route path="/" element={
@@ -58,7 +49,7 @@ const AppContent = () => {
             } />
           </Routes>
         </main>
-        {showFooter && <Footer />}
+        <Footer />
         <BackToTop />
       </div>
     </div>

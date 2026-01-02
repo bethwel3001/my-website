@@ -1,62 +1,78 @@
-import React from 'react';
-import { useCursor } from '../hooks/useCursor';
+import React, { useState, useEffect } from 'react';
+import useMousePosition from '../hooks/useMousePosition';
 
 const CustomCursor = () => {
-  const { cursorType, cursorPosition, isPointer, isText } = useCursor();
+  const { x, y } = useMousePosition();
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPointer, setIsPointer] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
 
-  // Hide default cursor
-  React.useEffect(() => {
-    document.body.style.cursor = 'none';
+  useEffect(() => {
+    // Show cursor only on desktop
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsVisible(!isTouchDevice && window.innerWidth > 768);
+
+    // Detect pointer elements
+    const handleMouseOver = (e) => {
+      if (e.target.tagName === 'A' || 
+          e.target.tagName === 'BUTTON' || 
+          e.target.closest('a') || 
+          e.target.closest('button') ||
+          e.target.style.cursor === 'pointer') {
+        setIsPointer(true);
+      }
+    };
+
+    const handleMouseOut = () => {
+      setIsPointer(false);
+    };
+
+    // Handle click animation
+    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseUp = () => setIsClicking(false);
+
+    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+
     return () => {
-      document.body.style.cursor = 'auto';
+      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mouseout', handleMouseOut);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
     };
   }, []);
 
+  if (!isVisible) return null;
+
   return (
     <>
-      {/* Main cursor dot */}
+      {/* Outer ring */}
       <div
-        className={`fixed w-3 h-3 bg-green-500 rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-75 ${
-          isPointer ? 'scale-150 bg-green-400' : ''
-        } ${isText ? 'w-1 h-6 bg-white' : ''}`}
+        className="fixed top-0 left-0 pointer-events-none z-50 transition-transform duration-75"
         style={{
-          left: cursorPosition.x,
-          top: cursorPosition.y,
+          transform: `translate(${x - 12}px, ${y - 12}px)`,
         }}
-      />
+      >
+        <div className={`w-6 h-6 rounded-full border-2 ${
+          isPointer 
+            ? 'border-green-500 bg-green-500/10 scale-125' 
+            : 'border-gray-500'
+        } transition-all duration-150 ${isClicking ? 'scale-90' : ''}`} />
+      </div>
 
-      {/* Outer ring for pointer state */}
-      {isPointer && (
-        <div
-          className="fixed w-12 h-12 border-2 border-green-400 rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-200"
-          style={{
-            left: cursorPosition.x,
-            top: cursorPosition.y,
-          }}
-        />
-      )}
-
-      {/* Lens effect for images and interactive elements */}
-      {isPointer && (
-        <div
-          className="fixed w-24 h-24 border border-green-300/50 rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-300 backdrop-blur-sm"
-          style={{
-            left: cursorPosition.x,
-            top: cursorPosition.y,
-          }}
-        />
-      )}
-
-      {/* Text cursor trail */}
-      {isText && (
-        <div
-          className="fixed w-1 h-8 bg-white/80 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-150"
-          style={{
-            left: cursorPosition.x,
-            top: cursorPosition.y,
-          }}
-        />
-      )}
+      {/* Inner dot */}
+      <div
+        className="fixed top-0 left-0 pointer-events-none z-50 transition-transform duration-50"
+        style={{
+          transform: `translate(${x - 4}px, ${y - 4}px)`,
+        }}
+      >
+        <div className={`w-2 h-2 rounded-full ${
+          isPointer ? 'bg-green-500' : 'bg-gray-700'
+        } transition-all duration-100 ${isClicking ? 'scale-150' : ''}`} />
+      </div>
     </>
   );
 };

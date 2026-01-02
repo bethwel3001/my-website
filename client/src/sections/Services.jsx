@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaCode, FaUserFriends, FaCloud, FaRocket, FaComments } from 'react-icons/fa';
+import { FaCode, FaUserFriends, FaCloud, FaRocket} from 'react-icons/fa';
 
 const Services = () => {
   const services = [
@@ -114,7 +113,6 @@ const Services = () => {
               href="#contact"
               className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 md:px-10 md:py-5 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 text-base md:text-xl shadow-lg hover:shadow-xl"
             >
-              <FaComments className="w-5 h-5 md:w-6 md:h-6" />
               <span>Discuss Your Project</span>
             </a>
           </div>
