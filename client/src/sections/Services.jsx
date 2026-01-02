@@ -41,7 +41,7 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             Services & Expertise
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Leveraging technical expertise and community leadership to deliver impactful solutions
           </p>
         </div>
@@ -58,36 +58,41 @@ const Services = () => {
                 {/* Header with transparent icon */}
                 <div className="flex items-start space-x-4 mb-6">
                   <div className="p-3 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-green-400 group-hover:text-green-300" />
+                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-green-400 group-hover:text-green-300" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 truncate">
+                    <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                    <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                       {service.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Features - Centered on small screens */}
+                {/* Features - Clean balanced layout */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-white mb-3 text-sm md:text-base text-center sm:text-left">
+                  <h4 className="font-medium text-white mb-4 text-lg md:text-xl text-center md:text-left">
                     Core Offerings
                   </h4>
-                  <ul className="space-y-2 text-center sm:text-left">
+                  <div className="flex flex-col items-center md:items-start space-y-3">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center space-x-3 text-gray-400 sm:justify-start justify-center">
-                        <div className="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></div>
-                        <span className="text-xs md:text-sm">{feature}</span>
-                      </li>
+                      <div
+                        key={idx}
+                        className="flex items-center space-x-3 w-full max-w-xs md:max-w-none"
+                      >
+                        <div className="w-3 h-3 bg-green-400 rounded-full flex-shrink-0"></div>
+                        <span className="text-base md:text-lg text-gray-300 text-center md:text-left flex-1">
+                          {feature}
+                        </span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                {/* Footer - Price centered on small screens */}
+                {/* Footer - Price */}
                 <div className="pt-4 border-t border-gray-700/50">
-                  <span className="text-green-400 font-semibold text-sm md:text-base block text-center sm:text-left">
+                  <span className="text-green-400 font-semibold text-lg md:text-xl block text-center md:text-left">
                     {service.price}
                   </span>
                 </div>
@@ -99,17 +104,17 @@ const Services = () => {
         {/* Call to Action - Single Discuss button */}
         <div className="text-center mt-12 md:mt-16">
           <div className="backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-700/50 max-w-2xl mx-auto">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
               Start Your Project
             </h3>
-            <p className="text-gray-400 mb-4 md:mb-6 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-400 mb-6 md:mb-8 text-base md:text-xl leading-relaxed">
               Let's collaborate to bring your vision to life with technical excellence and strategic insight.
             </p>
             <a
               href="#contact"
-              className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2 text-sm md:text-base"
+              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 md:px-10 md:py-5 rounded-lg font-medium transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 text-base md:text-xl shadow-lg hover:shadow-xl"
             >
-              <FaComments className="w-4 h-4 md:w-5 md:h-5" />
+              <FaComments className="w-5 h-5 md:w-6 md:h-6" />
               <span>Discuss Your Project</span>
             </a>
           </div>

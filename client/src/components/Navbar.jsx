@@ -78,14 +78,14 @@ const Navbar = () => {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-gray-900'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-end h-16">
+          <div className="flex items-center justify-end h-16 md:h-20">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-2">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="px-4 py-2 text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+                  className="px-5 py-3 text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
                 >
                   {item.name}
                 </a>
@@ -101,9 +101,9 @@ const Navbar = () => {
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMenuOpen ? (
-                  <HiX className="w-6 h-6" />
+                  <HiX className="w-7 h-7" />
                 ) : (
-                  <HiMenuAlt3 className="w-6 h-6" />
+                  <HiMenuAlt3 className="w-7 h-7" />
                 )}
               </button>
             </div>
@@ -131,25 +131,25 @@ const Navbar = () => {
         }`}>
           <div className="bg-gray-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-700 overflow-hidden">
             {/* Modal Header with Close Button */}
-            <div className="flex justify-end p-4">
+            <div className="flex justify-end p-5">
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50 transition-colors duration-200"
                 aria-label="Close menu"
               >
-                <HiX className="w-5 h-5" />
+                <HiX className="w-6 h-6" />
               </button>
             </div>
             
             {/* Navigation Links */}
-            <div className="px-6 pb-8">
-              <div className="space-y-2">
+            <div className="px-6 pb-10">
+              <div className="space-y-3">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={handleLinkClick}
-                    className="block text-center text-base font-medium text-gray-300 hover:text-white py-3 px-4 rounded-lg hover:bg-gray-700/50 transition-colors duration-200"
+                    className="block text-center text-xl font-semibold text-gray-300 hover:text-white py-4 px-5 rounded-lg hover:bg-gray-700/50 transition-colors duration-200"
                   >
                     {item.name}
                   </a>

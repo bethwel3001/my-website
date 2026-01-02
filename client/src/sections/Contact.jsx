@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaExclamationCircle, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaTimes } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaExclamationCircle, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaTimes, FaMedium } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -88,10 +88,10 @@ const Contact = () => {
                   <FaEnvelope className="w-4 h-4 md:w-5 md:h-5" />
                 </div>
                 <div>
-                  <p className="text-gray-400 text-xs md:text-sm">Email</p>
+                  <p className="text-gray-400 text-sm md:text-base">Email</p>
                   <a 
                     href="mailto:kiplagatbethwelk@gmail.com"
-                    className="text-white hover:text-green-400 transition-colors text-sm md:text-base"
+                    className="text-white hover:text-green-400 transition-colors text-base md:text-lg"
                   >
                     kiplagatbethwelk@gmail.com
                   </a>
@@ -103,27 +103,27 @@ const Contact = () => {
                   <FaMapMarkerAlt className="w-4 h-4 md:w-5 md:h-5" />
                 </div>
                 <div>
-                  <p className="text-gray-400 text-xs md:text-sm">Location</p>
-                  <p className="text-white text-sm md:text-base">Kisumu, Kenya</p>
+                  <p className="text-gray-400 text-sm md:text-base">Location</p>
+                  <p className="text-white text-base md:text-lg">Kisumu, Kenya</p>
                 </div>
               </div>
 
               {/* Availability*/}
               <div className="bg-gray-800/50 rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-gray-400 text-xs md:text-sm">Current Status</p>
+                  <p className="text-gray-400 text-sm md:text-base">Current Status</p>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-white text-sm md:text-base font-medium">Available for collaborations</p>
-                  <span className="text-green-400 text-xs font-semibold bg-green-500/20 px-2 py-1 rounded-full">
+                  <p className="text-white text-base md:text-lg font-medium">Available for collaborations</p>
+                  <span className="text-green-400 text-sm font-semibold bg-green-500/20 px-2 py-1 rounded-full">
                     ONLINE
                   </span>
                 </div>
-                <p className="text-gray-500 text-xs mt-2">
+                <p className="text-gray-500 text-sm mt-2">
                   Quick response guaranteed
                 </p>
               </div>
@@ -131,30 +131,37 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="text-center lg:text-left">
-              <h4 className="font-semibold text-white mb-4 text-sm md:text-base">
+              <h4 className="font-semibold text-white mb-4 text-base md:text-lg">
                 Follow My Journey:
               </h4>
               <div className="flex justify-center lg:justify-start space-x-3 md:space-x-4">
                 <a
                   href="https://github.com/bethwel3001"
-                  className="p-2 md:p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
+                  className="p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
                   aria-label="GitHub"
                 >
-                  <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
+                  <FaGithub className="w-5 h-5" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/iambethwelkiplagat/"
-                  className="p-2 md:p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
+                  className="p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedin className="w-4 h-4 md:w-5 md:h-5" />
+                  <FaLinkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="https://twitter.com/am_kiplagat"
-                  className="p-2 md:p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
+                  className="p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
                   aria-label="Twitter"
                 >
-                  <FaTwitter className="w-4 h-4 md:w-5 md:h-5" />
+                  <FaTwitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://medium.com/@iamkiplagat"
+                  className="p-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-green-500 hover:text-white transition-colors"
+                  aria-label="Medium"
+                >
+                  <FaMedium className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -165,7 +172,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm md:text-base font-medium text-gray-300 mb-2 text-center sm:text-left">
                     Your Name
                   </label>
                   <input
@@ -175,13 +182,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors text-sm md:text-base"
-                    placeholder="Enter your name"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors text-base placeholder:text-center sm:placeholder:text-left"
+                    placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm md:text-base font-medium text-gray-300 mb-2 text-center sm:text-left">
                     Email Address
                   </label>
                   <input
@@ -191,14 +198,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors text-sm md:text-base"
-                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors text-base placeholder:text-center sm:placeholder:text-left"
+                    placeholder="Your email"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="subject" className="block text-sm md:text-base font-medium text-gray-300 mb-2 text-center sm:text-left">
                   Subject
                 </label>
                 <input
@@ -208,13 +215,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors text-sm md:text-base"
-                  placeholder="What's this about?"
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors text-base placeholder:text-center sm:placeholder:text-left"
+                  placeholder="Project or collaboration"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm md:text-base font-medium text-gray-300 mb-2 text-center sm:text-left">
                   Message
                 </label>
                 <textarea
@@ -224,8 +231,8 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors resize-none text-sm md:text-base"
-                  placeholder="Tell me about your project or collaboration idea..."
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition-colors resize-none text-base placeholder:text-center sm:placeholder:text-left"
+                  placeholder="Tell me about your idea..."
                 ></textarea>
               </div>
 
@@ -237,7 +244,7 @@ const Contact = () => {
                     : status.type === 'error'
                     ? 'bg-red-500/10 border-red-500/30 text-red-400'
                     : 'bg-blue-500/10 border-blue-500/30 text-blue-400'
-                } flex items-center space-x-2 text-sm md:text-base`}>
+                } flex items-center space-x-2 text-base`}>
                   {status.type === 'success' ? (
                     <FaCheckCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
                   ) : status.type === 'error' ? (
@@ -260,11 +267,11 @@ const Contact = () => {
                 </div>
               )}
 
-              <div className="flex justify-center lg:justify-start">
+              <div className="flex justify-center">
                 <button
                   type="submit"
                   disabled={status.type === 'loading'}
-                  className="bg-green-500 hover:bg-green-600 disabled:bg-gray-600 text-white py-3 px-8 md:py-4 md:px-12 rounded-lg font-medium transition-colors disabled:cursor-not-allowed flex items-center justify-center space-x-2 min-w-[140px] text-sm md:text-base"
+                  className="bg-green-500 hover:bg-green-600 disabled:bg-gray-600 text-white py-3 px-8 rounded-lg font-medium transition-colors disabled:cursor-not-allowed flex items-center justify-center space-x-2 min-w-[160px] text-base"
                 >
                   <FaPaperPlane className="w-4 h-4 flex-shrink-0" />
                   <span>
