@@ -13,6 +13,7 @@ import Services from './sections/Services';
 import Contact from './sections/Contact';
 import ProfileSection from './sections/ProfileSection';
 import CustomCursor from './components/CustomCursor'; 
+import DomainRedirect from './components/DomainRedirect';
 const AppContent = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,6 +34,7 @@ const AppContent = () => {
       <div className="bg-gray-900">
         <Navbar />
         <CustomCursor />
+              <DomainRedirect />
         <main>
           <Routes>
             <Route path="/" element={

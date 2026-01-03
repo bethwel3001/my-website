@@ -4,5 +4,40 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "bethwel-lagat.netlify.app"
+        }
+      ],
+      "destination": "https://bethwel.vercel.app/:splat",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bethwel-lagat.netlify.app"
+        }
+      ],
+      "destination": "https://bethwel.vercel.app/:splat",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "bethwel-lagat.vercel.app"
+        }
+      ],
+      "destination": "https://bethwel.vercel.app/:splat",
+      "permanent": true
+    }
   ]
-}   
+}
