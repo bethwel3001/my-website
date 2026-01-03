@@ -1,0 +1,32 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:splat*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bethwel-lagat.netlify.app"
+        }
+      ],
+      "destination": "https://bethwel.vercel.app/:splat",
+      "permanent": true
+    },
+    {
+      "source": "/:splat*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bethwel-lagat.netlify.app"
+        }
+      ],
+      "destination": "https://bethwel.vercel.app/:splat",
+      "permanent": true
+    }
+  ]
+}
