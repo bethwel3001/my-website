@@ -1,81 +1,123 @@
-import React, { useState } from 'react';
-import { HiExternalLink, HiChevronRight, HiFolder } from 'react-icons/hi';
-import { FaGithub } from 'react-icons/fa';
+import React, { useState, useEffect, useRef } from 'react';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { HiChevronDown, HiChevronUp, HiFolderOpen } from 'react-icons/hi';
+import { projects, categories } from '../data/projects';
+
+const ProjectCard = ({ project }) => (
+  <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden group border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:border-gray-600/80">
+    <div className="overflow-hidden">
+      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+    </div>
+    <div className="p-6">
+      <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+      <p className="text-gray-300 text-base mb-4 min-h-[5rem]">{project.description}</p>
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.techStack.map((tech) => {
+          const Icon = tech.icon;
+          return (
+            <span key={tech.name} className="flex items-center text-xs bg-gray-700/80 text-green-300 px-3 py-1 rounded-full">
+              <Icon className="mr-2" />
+              {tech.name}
+            </span>
+          );
+        })}
+      </div>
+      <div className="flex justify-end items-center">
+        <div className="flex space-x-4">
+          {project.githubUrl && (
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-400 transition-colors duration-300">
+              <FaGithub className="w-6 h-6" />
+            </a>
+          )}
+          {project.liveUrl && (
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-400 transition-colors duration-300">
+              <FaExternalLinkAlt className="w-6 h-6" />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
+  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [visibleProjects, setVisibleProjects] = useState(6);
+  const resultsRef = useRef(null);
 
-  const categories = [
-    { id: 'all', label: 'All Projects' },
-    { id: '4', label: 'SDG 4: Education' },
-    { id: '13', label: 'SDG 13: Climate' },
-    { id: '11', label: 'SDG 11: Communities' },
-    { id: '2', label: 'SDG 2: Agriculture' },
-    { id: 'fun', label: 'Fun Projects' },
-    { id: 'ui', label: 'UI/UX Projects' }
-  ];
+  useEffect(() => {
+    const initialProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+    setFilteredProjects(initialProjects);
+  }, []);
+
+  const handleFilterClick = (newFilter) => {
+    setFilter(newFilter);
+    const filtered = newFilter === 'all' ? projects : projects.filter(p => p.category === newFilter);
+    setFilteredProjects(filtered);
+    setVisibleProjects(6);
+    
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const showMoreProjects = () => {
+    setVisibleProjects(prev => prev + 6);
+  };
+
+  const showLessProjects = () => {
+    setVisibleProjects(6);
+    resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section id="projects" className="py-16 md:py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-            Featured Projects
-          </h2>
-          <p className="text-2xl md:text-3xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            This section is currently under development
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">A selection of projects that I'm proud of. Each one is a step in my journey as a developer.</p>
         </div>
 
-        {/* Category Filter - Same as old */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
-          {categories.map((category) => (
+          {categories.map(category => (
             <button
               key={category.id}
-              onClick={() => setFilter(category.id)}
-              className={`px-5 py-3 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-base md:text-base flex items-center space-x-1 active:scale-95 ${
-                filter === category.id
-                  ? 'bg-green-500 text-white shadow-lg hover:shadow-green-500/30'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:scale-105'
-              }`}
-            >
-              <span>{category.label}</span>
-              <HiChevronRight className="w-4 h-4" />
+              onClick={() => handleFilterClick(category.id)}
+              className={`px-5 py-2 text-base md:px-6 md:py-2 md:text-lg rounded-full font-medium transition-all duration-300 ${filter === category.id ? 'bg-green-500 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}>
+              {category.label}
             </button>
           ))}
         </div>
 
-        {/* Development Message - Border only, no background */}
-        <div className="text-center max-w-2xl mx-auto border-2 border-gray-700/50 rounded-2xl p-6 md:p-12">
-          <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-6">
-            <HiFolder className="w-8 h-8 md:w-10 md:h-10 text-gray-400" />
-          </div>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-            Projects Section Under Development
-          </h3>
-          <p className="text-base md:text-lg text-gray-400 mb-6 leading-relaxed">
-            This portfolio section is being updated with current projects. 
-            You can visit my GitHub to see my latest work and contributions.
-          </p>
-          <div className="flex flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/bethwel3001"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gray-700 hover:bg-gray-600 text-gray-300 px-6 py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center space-x-2 text-base whitespace-nowrap shadow-lg hover:shadow-xl active:scale-95 active:shadow-inner active:bg-gray-700"
-            >
-              <FaGithub className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span className="group-hover:translate-x-1 transition-transform duration-300">GitHub</span>
-            </a>
-            <a
-              href="#contact"
-              className="group bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center space-x-2 text-base whitespace-nowrap shadow-lg hover:shadow-xl active:scale-95 active:shadow-inner active:bg-green-700"
-            >
-              <span className="group-hover:translate-x-1 transition-transform duration-300">Contact</span>
-              <HiExternalLink className="w-4 h-4 group-hover:scale-110 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-          </div>
+        <div ref={resultsRef} className="scroll-mt-24">
+          {filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {filteredProjects.slice(0, visibleProjects).map(project => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20 px-6 bg-transparent border-2 border-dashed border-gray-700 rounded-lg animate-fadeInUp">
+              <HiFolderOpen className="mx-auto text-gray-600 w-20 h-20 mb-6" />
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">No Projects Found</h3>
+              <p className="text-gray-400 text-lg">There are no projects in this category yet. Check back later!</p>
+            </div>
+          )}
+
+          {filteredProjects.length > 6 && (
+            <div className="text-center mt-16">
+              {visibleProjects < filteredProjects.length ? (
+                <button onClick={showMoreProjects} className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 flex items-center mx-auto shadow-lg shadow-green-500/30">
+                  View More <HiChevronDown className="ml-2 w-5 h-5" />
+                </button>
+              ) : (
+                <button onClick={showLessProjects} className="bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-8 rounded-lg transition-colors flex items-center mx-auto">
+                  View Less <HiChevronUp className="ml-2 w-5 h-5" />
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </section>

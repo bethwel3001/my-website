@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaMedium, FaAngular } from "react-icons/fa6"; 
+import { FaGithub, FaMedium, FaBullhorn, FaAngular } from "react-icons/fa6";
 
 const Hero = () => {
   const [displayedFirstName, setDisplayedFirstName] = useState("");
@@ -55,14 +55,10 @@ const Hero = () => {
       <div className="max-w-4xl w-full text-center mt-16 opacity-0 animate-fadeInUp relative z-10">
 
         <div className="flex justify-center gap-4 mb-10 flex-wrap mt-2">
-           {/* GDE Angular Mission Badge - Updated */}
-           <div className="bg-gradient-to-r from-red-500/10 to-red-700/10 text-red-400 border border-red-500/20 px-4 py-2 rounded-full text-sm md:text-base font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(220,38,38,0.3)] animate-bounce-slow">
-            <span className="relative flex h-2.5 w-2.5 mr-1">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
-            </span>
-            <FaAngular className="w-4 h-4" />
-            <span>GDE Angular 2026</span>
+           {/* Fata Ambassador Badge */}
+           <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 text-yellow-400 border border-yellow-500/20 px-4 py-2 rounded-full text-sm md:text-base font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(245,158,11,0.3)] animate-bounce-slow">
+            <FaBullhorn className="w-4 h-4" />
+            <span>Fata Ambassador</span>
           </div>
 
           {/* Galactic Badge */}
@@ -74,7 +70,7 @@ const Hero = () => {
           <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 text-blue-400 border border-blue-500/20 px-4 py-2 rounded-full text-sm md:text-base font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
             <span>GDG Lead</span>
           </div>
-          
+
           {/* Open Source Badge */}
           <div className="bg-gradient-to-r from-purple-500/10 to-violet-500/10 text-purple-400 border border-purple-500/20 px-4 py-2 rounded-full text-sm md:text-base font-medium flex items-center space-x-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(168,85,247,0.3)]">
             <span>Open Source</span>
@@ -89,9 +85,9 @@ const Hero = () => {
                 <span className="inline-block w-0.5 h-14 bg-white ml-1 animate-pulse"></span>
               )}
             </span>
-            
+
             {displayedFirstName.length === firstName.length && <span className="mx-3"></span>}
-            
+
             {displayedFirstName.length === firstName.length && (
               <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                 {displayedLastName}
@@ -112,14 +108,7 @@ const Hero = () => {
             isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Currently learning{" "}
-              <span className="text-red-400 font-semibold">
-                Angular
-              </span>{" "}
-              and writing articles on my journey to becoming a{" "}
-              <span className="text-red-400 font-semibold">
-                GDE in Angular
-              </span>.
+              I'm passionate about building scalable and robust applications using modern web technologies.
             </p>
             <p className="text-lg md:text-xl text-gray-400 italic leading-relaxed">
               Building impactful digital experiences that connect technology with people.
@@ -144,8 +133,8 @@ const Hero = () => {
           </a>
 
           <a
-            href="https://medium.com/@iamkiplagat" 
-            target="_blank" 
+            href="https://medium.com/@iamkiplagat"
+            target="_blank"
             rel="noopener noreferrer"
             className="group bg-gray-800 border border-gray-700 hover:border-gray-500 text-gray-200 hover:text-white px-7 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 text-base md:text-lg flex items-center space-x-2 relative z-10"
           >
@@ -168,8 +157,8 @@ const Hero = () => {
         <div className={`grid grid-cols-3 gap-6 max-w-md mx-auto border-t border-gray-800 pt-8 mb-12 relative z-10 transition-all duration-500 delay-700 ${
           isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
-          
-          
+
+
           {/* Community */}
           <div className="text-center transition-all duration-300 hover:scale-105">
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent mb-2">
@@ -182,10 +171,10 @@ const Hero = () => {
           {/* Angular Articles */}
           <div className="text-center transition-all duration-300 hover:scale-105">
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent mb-2">
-              1
+              5+
             </div>
             <div className="text-sm md:text-base text-gray-300 uppercase tracking-wide font-medium">
-              Angular Article
+              Angular Articles
             </div>
           </div>
           {/* Awards */}
