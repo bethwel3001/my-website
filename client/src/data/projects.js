@@ -13,7 +13,7 @@ export const projects = [
       { name: 'Typescript', icon: SiTypescript }
     ],
     githubUrl: 'https://github.com/bethwel3001/asili',
-    liveUrl: 'https://asili.iota.vercel.app',
+    liveUrl: 'https://asili-iota.vercel.app',
     image: '/images/projects/asili.png'
   },
   {
@@ -28,7 +28,7 @@ export const projects = [
       { name: 'Tailwind CSS', icon: SiTailwindcss }
     ],
     githubUrl: 'https://github.com/bethwel3001/flowtale',
-    liveUrl: 'https://flowtale.vercel.app',
+    liveUrl: 'https://flowtaleplus.vercel.app',
     image: '/images/projects/flowtale.png'
   }
 ];
