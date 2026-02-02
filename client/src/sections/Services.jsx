@@ -39,7 +39,7 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             Services & Expertise
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Leveraging technical expertise and community leadership to deliver impactful solutions
           </p>
         </div>
@@ -57,25 +57,25 @@ const Services = () => {
                     <Icon className="w-6 h-6 text-green-400 group-hover:text-green-300" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-2xl font-semibold text-white">
                       {service.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-gray-400 leading-relaxed mb-6 text-base">
+                <p className="text-gray-400 leading-relaxed mb-6 text-lg">
                   {service.description}
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="font-medium text-white mb-4 text-md">
+                  <h4 className="font-medium text-white mb-4 text-lg">
                     Core Offerings
                   </h4>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-3">
                         <div className="w-2.5 h-2.5 bg-green-400 rounded-full flex-shrink-0"></div>
-                        <span className="text-gray-300 text-sm">
+                        <span className="text-gray-300 text-base">
                           {feature}
                         </span>
                       </div>
@@ -84,7 +84,7 @@ const Services = () => {
                 </div>
 
                 <div className="pt-4 border-t border-gray-700/50 text-right">
-                  <span className="text-green-400 font-semibold text-lg">
+                  <span className="text-green-400 font-semibold text-xl">
                     {service.price}
                   </span>
                 </div>
@@ -98,7 +98,7 @@ const Services = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Start Your Project
             </h3>
-            <p className="text-gray-400 mb-6 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-400 mb-6 text-lg md:text-xl leading-relaxed">
               Let's collaborate to bring your vision to life with technical excellence and strategic insight.
             </p>
             <a

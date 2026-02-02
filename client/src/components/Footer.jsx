@@ -9,15 +9,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand & Status */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">BETHWEL</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">BETHWEL</h3>
             <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
               <div className="relative">
                 <FaCircle className="w-4 h-4 text-green-500 animate-ping absolute" />
                 <FaCircle className="w-4 h-4 text-green-500 relative" />
               </div>
-              <span className="text-green-400 text-base md:text-lg font-medium">Available for work</span>
+              <span className="text-lg md:text-xl font-medium">Available for work</span>
             </div>
-            <p className="text-gray-400 text-base md:text-lg mb-4">
+            <p className="text-gray-400 text-lg md:text-xl mb-4">
               Building impactful solutions through code and community
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
@@ -54,18 +54,18 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="text-xl md:text-2xl font-semibold mb-4">Navigation</h4>
+            <h4 className="text-2xl md:text-3xl font-semibold mb-4">Navigation</h4>
             <div className="space-y-3">
-              <a href="#home" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
+              <a href="#home" className="text-gray-400 hover:text-green-400 transition-colors block text-lg md:text-xl">
                 Home
               </a>
-              <a href="#about" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
+              <a href="#about" className="text-gray-400 hover:text-green-400 transition-colors block text-lg md:text-xl">
                 About
               </a>
-              <a href="#services" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
+              <a href="#services" className="text-gray-400 hover:text-green-400 transition-colors block text-lg md:text-xl">
                 Services
               </a>
-              <a href="#contact" className="text-gray-400 hover:text-green-400 transition-colors block text-base md:text-lg">
+              <a href="#contact" className="text-gray-400 hover:text-green-400 transition-colors block text-lg md:text-xl">
                 Contact
               </a>
             </div>
@@ -73,31 +73,31 @@ const Footer = () => {
 
           {/* Expertise */}
           <div className="text-center md:text-left">
-            <h4 className="text-xl md:text-2xl font-semibold mb-4">Expertise</h4>
+            <h4 className="text-2xl md:text-3xl font-semibold mb-4">Expertise</h4>
             <div className="space-y-3">
-              <span className="text-gray-400 block text-base md:text-lg">Full-Stack Development</span>
-              <span className="text-gray-400 block text-base md:text-lg">Community Building</span>
-              <span className="text-gray-400 block text-base md:text-lg">Open Source</span>
-              <span className="text-gray-400 block text-base md:text-lg">SDG Solutions</span>
+              <span className="text-gray-400 block text-lg md:text-xl">Full-Stack Development</span>
+              <span className="text-gray-400 block text-lg md:text-xl">Community Building</span>
+              <span className="text-gray-400 block text-lg md:text-xl">Open Source</span>
+              <span className="text-gray-400 block text-lg md:text-xl">SDG Solutions</span>
             </div>
           </div>
 
           {/* Contact Info */}
           <div className="text-center md:text-left">
-            <h4 className="text-xl md:text-2xl font-semibold mb-4">Get In Touch</h4>
+            <h4 className="text-2xl md:text-3xl font-semibold mb-4">Get In Touch</h4>
             <div className="space-y-3">
               <a
                 href="mailto:kiplagatbethwelk@gmail.com"
-                className="text-green-400 hover:text-green-300 transition-colors block text-base md:text-lg"
+                className="text-green-400 hover:text-green-300 transition-colors block text-lg md:text-xl"
               >
                 kiplagatbethwel@gmail.com
               </a>
-              <p className="text-gray-400 text-base md:text-lg">Kisumu, Kenya</p>
-              <p className="text-gray-400 text-base md:text-lg">Open for collaborations</p>
+              <p className="text-gray-400 text-lg md:text-xl">Kisumu, Kenya</p>
+              <p className="text-gray-400 text-lg md:text-xl">Open for collaborations</p>
               <div className="pt-2">
                 <a
                   href="#contact"
-                  className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg text-base md:text-lg font-medium transition-all hover:scale-105 shadow-lg"
+                  className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg text-lg md:text-xl font-medium transition-all hover:scale-105 shadow-lg"
                 >
                   Start Project
                 </a>
@@ -109,36 +109,36 @@ const Footer = () => {
         {/* Stats Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-t border-b border-gray-800 mb-6">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">5+</div>
-            <div className="text-sm md:text-base text-gray-400 uppercase tracking-wide">Projects</div>
+            <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">5+</div>
+            <div className="text-base md:text-lg text-gray-400 uppercase tracking-wide">Projects</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">2</div>
-            <div className="text-sm md:text-base text-gray-400 uppercase tracking-wide">Awards</div>
+            <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">2</div>
+            <div className="text-base md:text-lg text-gray-400 uppercase tracking-wide">Awards</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">1.5+</div>
-            <div className="text-sm md:text-base text-gray-400 uppercase tracking-wide">Years Coding</div>
+            <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">1.5+</div>
+            <div className="text-base md:text-lg text-gray-400 uppercase tracking-wide">Years Coding</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">10+</div>
-            <div className="text-sm md:text-base text-gray-400 uppercase tracking-wide">Tech Events</div>
+            <div className="text-4xl md:text-5xl font-bold text-green-400 mb-2">10+</div>
+            <div className="text-base md:text-lg text-gray-400 uppercase tracking-wide">Tech Events</div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-gray-400 text-base md:text-lg text-center md:text-left">
+          <div className="text-gray-400 text-lg md:text-xl text-center md:text-left">
             <p>&copy; {new Date().getFullYear()} BETHWEL. All rights reserved.</p>
           </div>
           
-          <div className="flex items-center space-x-2 text-gray-400 text-base md:text-lg">
+          <div className="flex items-center space-x-2 text-gray-400 text-lg md:text-xl">
             <span>Made with</span>
             <FaHeart className="w-5 h-5 md:w-6 md:h-6 text-red-400 animate-pulse" />
             <span>by Be Tu</span>
           </div>
 
-          <div className="text-gray-400 text-base md:text-lg text-center md:text-right">
+          <div className="text-gray-400 text-lg md:text-xl text-center md:text-right">
             <p>Building the future, one line at a time</p>
           </div>
         </div>

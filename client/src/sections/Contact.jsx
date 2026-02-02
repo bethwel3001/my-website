@@ -9,13 +9,13 @@ const ContactInfoItem = ({ icon, label, value, isLink = false }) => {
         <Icon className="w-6 h-6" />
       </div>
       <div>
-        <p className="text-gray-400 text-base">{label}</p>
+        <p className="text-gray-400 text-lg">{label}</p>
         {isLink ? (
-          <a href={value} className="text-white hover:text-green-400 transition-colors text-lg">
+          <a href={value} className="text-white hover:text-green-400 transition-colors text-xl">
             {value.replace('mailto:', '')}
           </a>
         ) : (
-          <p className="text-white text-lg">{value}</p>
+          <p className="text-white text-xl">{value}</p>
         )}
       </div>
     </div>
@@ -46,7 +46,7 @@ const StatusMessage = ({ type, message, onClose }) => {
   const textColor = isSuccess ? 'text-green-400' : isError ? 'text-red-400' : 'text-blue-400';
 
   return (
-    <div className={`p-4 rounded-lg border ${bgColor} ${borderColor} ${textColor} flex items-center space-x-3 text-base`}>
+    <div className={`p-4 rounded-lg border ${bgColor} ${borderColor} ${textColor} flex items-center space-x-3 text-lg`}>
       {isSuccess ? <FaCheckCircle className="w-5 h-5 flex-shrink-0" /> : 
        isError ? <FaExclamationCircle className="w-5 h-5 flex-shrink-0" /> : 
        <div className="w-4 h-4 border-2 border-blue-400 border-t-transparent rounded-full animate-spin flex-shrink-0"></div>}
@@ -110,20 +110,20 @@ const Contact = () => {
             
             <div className="bg-gray-800/50 rounded-lg p-4">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-gray-400 text-base">Current Status</p>
+                <p className="text-gray-400 text-lg">Current Status</p>
                 <div className="flex items-center space-x-2">
                   <div className="w-2.5 h-2.5 bg-green-500 rounded-full relative flex items-center justify-center">
                     <div className="w-2.5 h-2.5 bg-green-500 rounded-full absolute animate-ping"></div>
                   </div>
-                  <span className="text-green-400 text-base font-semibold">ONLINE</span>
+                  <span className="text-green-400 text-lg font-semibold">ONLINE</span>
                 </div>
               </div>
-              <p className="text-white text-lg font-medium">Available for new collaborations</p>
-              <p className="text-gray-500 text-sm mt-1">Response times are typically within a few hours.</p>
+              <p className="text-white text-xl font-medium">Available for new collaborations</p>
+              <p className="text-gray-500 text-base mt-1">Response times are typically within a few hours.</p>
             </div>
 
             <div className="pt-4 text-center lg:text-left">
-              <h4 className="font-semibold text-white mb-4 text-lg">Follow My Journey</h4>
+              <h4 className="font-semibold text-white mb-4 text-xl">Follow My Journey</h4>
               <div className="flex justify-center lg:justify-start space-x-4">
                 <SocialLink href="https://github.com/bethwel3001" icon={FaGithub} label="GitHub" />
                 <SocialLink href="https://www.linkedin.com/in/iambethwelkiplagat/" icon={FaLinkedin} label="LinkedIn" />
@@ -137,25 +137,25 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-base font-medium text-gray-300 mb-2">Your Name</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full text-base px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition" placeholder="e.g. John Doe" />
+                  <label htmlFor="name" className="block text-lg font-medium text-gray-300 mb-2">Your Name</label>
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full text-lg px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition" placeholder="e.g. John Doe" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-base font-medium text-gray-300 mb-2">Email Address</label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full text-base px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition" placeholder="e.g. john.doe@example.com" />
+                  <label htmlFor="email" className="block text-lg font-medium text-gray-300 mb-2">Email Address</label>
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full text-lg px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition" placeholder="e.g. john.doe@example.com" />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-base font-medium text-gray-300 mb-2">Subject</label>
-                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="w-full text-base px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition" placeholder="Project or collaboration idea" />
+                <label htmlFor="subject" className="block text-lg font-medium text-gray-300 mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="w-full text-lg px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition" placeholder="Project or collaboration idea" />
               </div>
               <div>
-                <label htmlFor="message" className="block text-base font-medium text-gray-300 mb-2">Message</label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows="5" className="w-full text-base px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition resize-none" placeholder="Tell me about your idea..."></textarea>
+                <label htmlFor="message" className="block text-lg font-medium text-gray-300 mb-2">Message</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows="5" className="w-full text-lg px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-gray-800 text-white transition resize-none" placeholder="Tell me about your idea..."></textarea>
               </div>
               {status.message && <StatusMessage type={status.type} message={status.message} onClose={() => setStatus({ type: '', message: '' })} />}
               <div className="text-center sm:text-right">
-                <button type="submit" disabled={status.type === 'loading'} className="bg-green-500 hover:bg-green-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-3 px-8 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 w-full sm:w-auto text-lg">
+                <button type="submit" disabled={status.type === 'loading'} className="bg-green-500 hover:bg-green-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-3 px-8 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 w-full sm:w-auto text-xl">
                   <FaPaperPlane className="w-5 h-5" />
                   <span>{status.type === 'loading' ? 'Sending...' : 'Send Message'}</span>
                 </button>

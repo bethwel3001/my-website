@@ -42,8 +42,8 @@ const About = () => {
             About Me
           </h2>
           <div className="relative max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-400 leading-relaxed">
-              Software Engineer focused on Angular, community building, and creating impactful solutions
+            <p className="text-2xl md:text-3xl text-gray-400 leading-relaxed">
+              Software Engineer focused on community building and creating impactful solutions
             </p>
           </div>
         </div>
@@ -58,23 +58,23 @@ const About = () => {
               </h3>
 
               <div className="space-y-6 md:space-y-8 text-gray-400 leading-relaxed flex-grow">
-                <p className="transition-all duration-300 hover:text-gray-300 text-base md:text-lg">
+                <p className="transition-all duration-300 hover:text-gray-300 text-lg md:text-xl">
                   As a Software Engineering student, I discovered my passion for building user-friendly applications
                   and solving real-world problems through code.
                 </p>
 
-                <p className="transition-all duration-300 hover:text-gray-300 text-base md:text-lg">
+                <p className="transition-all duration-300 hover:text-gray-300 text-lg md:text-xl">
                   My journey took a significant turn when I participated in the NASA Space Apps Challenge,
                   where our team earned the Galactic Problem Solver title. This experience taught me how
                   technology can address complex global challenges.
                 </p>
 
-                <p className="transition-all duration-300 hover:text-gray-300 text-base md:text-lg">
+                <p className="transition-all duration-300 hover:text-gray-300 text-lg md:text-xl">
                   I am passionate about building scalable and robust applications using <span className="text-red-400 font-semibold">Angular</span>.
                   I have authored 5+ technical articles to share my knowledge with the community.
                 </p>
 
-                <p className="transition-all duration-300 hover:text-gray-300 text-base md:text-lg">
+                <p className="transition-all duration-300 hover:text-gray-300 text-lg md:text-xl">
                   I believe in sharing knowledge and empowering others, which is why I'm actively involved
                   in community events and open-source contributions alongside my Angular learning journey.
                 </p>
@@ -97,12 +97,12 @@ const About = () => {
                       <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-7 h-7 md:w-9 md:h-9 text-white/90 group-hover:text-white" />
                       </div>
-                      <h4 className="font-bold text-white text-lg md:text-xl mb-2 group-hover:text-green-400 transition-colors">
+                      <h4 className="font-bold text-white text-xl md:text-2xl mb-2 group-hover:text-green-400 transition-colors">
                         {item.title}
                       </h4>
                     </div>
 
-                    <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                    <p className="text-base md:text-lg text-gray-300 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

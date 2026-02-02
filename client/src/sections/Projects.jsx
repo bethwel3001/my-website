@@ -9,13 +9,13 @@ const ProjectCard = ({ project }) => (
       <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-      <p className="text-gray-300 text-base mb-4 min-h-[5rem]">{project.description}</p>
+      <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+      <p className="text-gray-300 text-lg mb-4 min-h-[5rem]">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-6">
         {project.techStack.map((tech) => {
           const Icon = tech.icon;
           return (
-            <span key={tech.name} className="flex items-center text-xs bg-gray-700/80 text-green-300 px-3 py-1 rounded-full">
+            <span key={tech.name} className="flex items-center text-sm bg-gray-700/80 text-green-300 px-3 py-1 rounded-full">
               <Icon className="mr-2" />
               {tech.name}
             </span>

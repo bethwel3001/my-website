@@ -98,7 +98,7 @@ const Hero = () => {
             )}
           </h1>
 
-          <h2 className={`text-lg md:text-xl font-light text-gray-400 tracking-wide mb-5 transition-all duration-500 ${
+          <h2 className={`text-xl md:text-2xl font-light text-gray-400 tracking-wide mb-5 transition-all duration-500 ${
             isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             Software Engineer & Community Leader
@@ -107,10 +107,10 @@ const Hero = () => {
           <div className={`max-w-3xl mx-auto space-y-5 transition-all duration-500 delay-300 ${
             isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
               I'm passionate about building scalable and robust applications using modern web technologies.
             </p>
-            <p className="text-lg md:text-xl text-gray-400 italic leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-400 italic leading-relaxed">
               Building impactful digital experiences that connect technology with people.
             </p>
           </div>
@@ -197,7 +197,7 @@ const Hero = () => {
             aria-label="Scroll to next section"
             className="flex flex-col items-center space-y-1 text-gray-500 hover:text-green-400 transition-colors group"
           >
-            <span className="text-sm md:text-base">Explore</span>
+            <span className="text-base md:text-lg">Explore</span>
             <div className="w-5 h-8 border-2 border-gray-600 rounded-full flex justify-center items-start group-hover:border-green-400">
               <div className="w-1 h-2 bg-green-400 rounded-full mt-1 animate-bounce"></div>
             </div>

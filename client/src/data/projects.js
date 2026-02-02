@@ -1,4 +1,5 @@
-import { SiNextdotjs, SiTailwindcss, SiFirebase, SiTypescript, SiFramer } from 'react-icons/si';
+import { SiNextdotjs, SiTailwindcss, SiFirebase, SiTypescript, SiFramer, SiRust } from 'react-icons/si';
+import { FaCode } from 'react-icons/fa';
 
 export const projects = [
   {
@@ -30,11 +31,27 @@ export const projects = [
     githubUrl: 'https://github.com/bethwel3001/flowtale',
     liveUrl: 'https://flowtaleplus.vercel.app',
     image: '/images/projects/flowtale.png'
+  },
+  {
+    id: 3,
+    title: 'MOX',
+    category: 'dev-tools',
+    description: 'A local-first, real-time collaborative code editor and API testing application built with Rust, Tauri, and Next.js. Features CRDT-based document synchronization, live cursor presence, voice chat, and an integrated development environment.',
+    techStack: [
+      { name: 'Rust', icon: SiRust },
+      { name: 'Tauri', icon: FaCode },
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'TypeScript', icon: SiTypescript }
+    ],
+    githubUrl: 'https://github.com/bethwel3001/rust-africa-hackathon',
+    liveUrl: '',
+    image: '/images/projects/mox.png'
   }
 ];
 
 export const categories = [
     { id: 'all', label: 'All Projects' },
+    { id: 'dev-tools', label: 'Developer Tools' },
     { id: 'sdg-4', label: 'SDG 4: Education' },
     { id: 'sdg-13', label: 'SDG 13: Climate' },
     { id: 'sdg-11', label: 'SDG 11: Communities' },
