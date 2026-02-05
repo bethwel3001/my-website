@@ -4,14 +4,26 @@ import { HiChevronDown, HiChevronUp, HiFolderOpen } from 'react-icons/hi';
 import { projects, categories } from '../data/projects';
 
 const ProjectCard = ({ project }) => (
-  <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden group border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:border-gray-600/80">
-    <div className="overflow-hidden">
-      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+  <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden group border-2 border-gray-700/50 transition-all duration-300 hover:border-green-500">
+    <div className="relative overflow-hidden h-64">
+      <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
+        {project.githubUrl && (
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors duration-300 transform hover:scale-110">
+            <FaGithub className="w-10 h-10" />
+          </a>
+        )}
+        {project.liveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors duration-300 transform hover:scale-110">
+            <FaExternalLinkAlt className="w-9 h-9" />
+          </a>
+        )}
+      </div>
     </div>
     <div className="p-6">
       <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-      <p className="text-gray-300 text-lg mb-4 min-h-[5rem]">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-6">
+      <p className="text-gray-300 text-lg mb-4 min-h-[7rem]">{project.description}</p>
+      <div className="flex flex-wrap gap-2">
         {project.techStack.map((tech) => {
           const Icon = tech.icon;
           return (
@@ -21,20 +33,6 @@ const ProjectCard = ({ project }) => (
             </span>
           );
         })}
-      </div>
-      <div className="flex justify-end items-center">
-        <div className="flex space-x-4">
-          {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-400 transition-colors duration-300">
-              <FaGithub className="w-6 h-6" />
-            </a>
-          )}
-          {project.liveUrl && (
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-400 transition-colors duration-300">
-              <FaExternalLinkAlt className="w-6 h-6" />
-            </a>
-          )}
-        </div>
       </div>
     </div>
   </div>
@@ -49,17 +47,15 @@ const Projects = () => {
   useEffect(() => {
     const initialProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
     setFilteredProjects(initialProjects);
-  }, []);
+  }, [filter]);
 
   const handleFilterClick = (newFilter) => {
     setFilter(newFilter);
-    const filtered = newFilter === 'all' ? projects : projects.filter(p => p.category === newFilter);
-    setFilteredProjects(filtered);
     setVisibleProjects(6);
     
     setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+        resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
   };
 
   const showMoreProjects = () => {

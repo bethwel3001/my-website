@@ -18,7 +18,7 @@ const LoadingScreen = () => {
         <div className="glow bg-green-500/10" />
       </div>
 
-      <style jsx>{`
+      <style>{`
         .ai-matrix-loader {
           width: 120px;
           height: 160px;
