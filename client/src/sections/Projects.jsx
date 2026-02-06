@@ -7,15 +7,15 @@ const ProjectCard = ({ project }) => (
   <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden group border-2 border-gray-700/50 transition-all duration-300 hover:border-green-500">
     <div className="relative overflow-hidden h-64">
       <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
+      <div className="absolute inset-0 bg-black/60 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-6">
         {project.githubUrl && (
           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors duration-300 transform hover:scale-110">
-            <FaGithub className="w-10 h-10" />
+            <FaGithub className="w-8 h-8 md:w-10 md:h-10" />
           </a>
         )}
         {project.liveUrl && (
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors duration-300 transform hover:scale-110">
-            <FaExternalLinkAlt className="w-9 h-9" />
+            <FaExternalLinkAlt className="w-7 h-7 md:w-9 md:h-9" />
           </a>
         )}
       </div>
